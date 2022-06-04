@@ -2,5 +2,3 @@
 
 j == hola;
 echo j;
-
-?>>
