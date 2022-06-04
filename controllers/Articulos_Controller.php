@@ -1,6 +1,4 @@
 <?php
-require_once 'vendor/autoload.php';
-require_once 'auth/Auth.php';
 
 class Articulos_Controller extends Controller
 {

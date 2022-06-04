@@ -19,7 +19,7 @@
 
 
 
-  <h1>Pagina de error</h1>
+  <h1>Listado De Articulos</h1>
   <h2><?=$this->mensaje;?></h2>
 
   <?php require 'views/footer.php';?>
