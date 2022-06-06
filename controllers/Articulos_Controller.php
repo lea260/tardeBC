@@ -17,10 +17,15 @@ class Articulos_Controller extends Controller
         $this->view->render('login/index');
     }
 
-    public function listar()
+    public function listar($param = null)
     {
-        //$alumnos = $this->model->get();
-        $this->view->mensaje = "cargado";
+
+        //obtiene todos los articulos
+        $articulos = $this->model->get();
+        //lo asigna a la varible articulos
+        $this->view->articulos = $articulos;
+        //lista los articulos
         $this->view->render('articulos/listar');
+        $arr = [];
     }
 }
