@@ -1,9 +1,9 @@
 <?php
 
-require_once 'entidades/alumno.php';
+//require_once 'entidades/alumno.php';
 require_once 'entidades/articulo.php';
 
-class Articulos02_Model extends Model
+class Articulos_Model extends Model
 {
 
     public function __construct()
@@ -11,7 +11,7 @@ class Articulos02_Model extends Model
         parent::__construct();
     }
 
-    public function get()
+    public function listar()
     {
         //define un arreglo en php
         //$items = array();

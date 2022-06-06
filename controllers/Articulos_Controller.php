@@ -1,6 +1,4 @@
 <?php
-require_once 'vendor/autoload.php';
-require_once 'auth/Auth.php';
 
 class Articulos_Controller extends Controller
 {
@@ -15,16 +13,19 @@ class Articulos_Controller extends Controller
     public function render()
     {
         //$alumnos = $this->model->get();
-        $this->view->alumnos = "cargado";
-        $this->view->render('login/index');
-    }
-    
-    public function listar()
-    {
-        //$alumnos = $this->model->get();
         $this->view->mensaje = "cargado";
-        $this->view->render('articulos/listar');
+        $this->view->render('articulos/index');
     }
+    public function listar($param = null)
+    {
 
+        //obtiene todos los articulos
+        $articulos = $this->model->listar();
+        //lo asigna a la varible articulos
+        $this->view->articulos = $articulos;
+        //lista los articulos
+        $this->view->render('articulos/listar');
+        $arr = [];
+    }
 
 }
