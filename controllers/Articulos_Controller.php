@@ -3,13 +3,21 @@
 
 class Articulos_Controller extends Controller
 {
-    public function __construct()
+    public function __construct ()
     {
         parent::__construct();
         $this->view->mensaje        = "";
         $this->view->resultadoLogin = "";
     }
 
+    public function render()  {
+    $this->view->mensaje = "cargado";
+    $this->view->render('articulos/index');
+
+        
+    }
+      
+  
     //base+login
     public function listar()
     {
