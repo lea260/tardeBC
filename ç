@@ -1,0 +1,18 @@
+Agregue cambios a config.php y Articulos_Controller.php
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# interactive rebase in progress; onto ca802ac
+# Last commands done (4 commands done):
+#    pick 3b04fc8 mmensa02
+#    pick 50cfa92 Agregue cambios a config.php y Articulos_Controller.php
+# Next commands to do (4 remaining commands):
+#    pick 212ac7b Modifique Articulos_controller.php
+#    pick f397e9b Agregue contenido listar.php y index.php en articulos y modifique articulos_controller.php
+# You are currently rebasing branch 'mendoza' on 'ca802ac'.
+#
+# Changes to be committed:
+#	new file:   config/config.php
+#	modified:   controllers/Articulos_Controller.php
+#
