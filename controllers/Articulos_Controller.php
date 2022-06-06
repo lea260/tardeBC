@@ -13,8 +13,8 @@ class Articulos_Controller extends Controller
     public function render()
     {
         //$alumnos = $this->model->get();
-        $this->view->alumnos = "cargado";
-        $this->view->render('login/index');
+        $this->view->mensaje = "cargado";
+        $this->view->render('articulos/index');
     }
     public function listar()
     {
