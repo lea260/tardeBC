@@ -19,11 +19,16 @@ class Articulos_Controller extends Controller
       
   
     //base+login
-    public function listar()
-    {
-        //$alumnos = $this->model->get();
-        $this->view->mensaje = "cargado";
-        $this->view->render('articulos/listar');
-    }
 
-}
+ public function listar($param = null)
+    {
+
+        //obtiene todos los articulos
+        $articulos = $this->model->listar();
+        //lo asigna a la varible articulos
+        $this->view->articulos = $articulos;
+        //lista los articulos
+        $this->view->render('articulos/listar');
+        $arr = array();
+    }
+       }
