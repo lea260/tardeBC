@@ -11,8 +11,7 @@ class Articulos_Model extends Model
         parent::__construct();
     }
 
-    public function listar()
-    {
+    public function listar(){
         //define un arreglo en php
         //$items = array();
         $items = [];
@@ -93,4 +92,28 @@ class Articulos_Model extends Model
             $pdo = null;
         }
     } //end actualizar
+    public function crear($articulo){
+        $pdo = $this->db->connect();
+        try {
+            $query = $pdo->prepare('insert into productos (codigo, descripcion,precio, fecha) values (:codigo, :descripcion, :precio, :fecha)');
+            $query->bindParam(':codigo', $articulo->codigo);
+            $query->bindParam(':descripcion', $articulo->descripcion);
+            $query->bindParam(':precio', $articulo->precio);
+            $query->bindParam(':fecha', $articulo->fecha);
+            $lastInsertId = 0;
+            if ($query->execute()) {
+                $lastInsertId = $pdo->lastInsertId();
+            } else {
+
+                $lastInsertId = -1;
+            }
+            //$query->close();
+            return $lastInsertId;
+        } catch (PDOException $e) {
+            return -1;
+        } finally {
+            $pdo = null;
+        }
+    } //end crear
+    
 }

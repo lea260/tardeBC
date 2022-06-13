@@ -34,23 +34,19 @@ class Articulos_Controller extends Controller
 
     
     public function crear(){
-        $json = file_get_contents('php://input');
-        $obj = json_decode($json);
+        
 
         $articulo = new Articulo();
-        $articulo->codigo = $obj->codigo;
-        $articulo->descripcion = $obj->descripcion;
-        $articulo->precio = $obj->precio;
-        $articulo->fecha = $obj->fecha;
+        $articulo->codigo = $_POST['codigo'];
+        $articulo->descripcion = $_POST['descripcion'];
+        $articulo->precio = $_POST['precio'];
+        $articulo->fecha = $_POST['fecha'];
 
         $resultado = $this->model->crear($articulo);
 
-        $respuesta = [
-            "ArituloId" => $resultado,
-        ];
-        $this->view->respuesta = json_encode($respuesta);
+        $this->view->mensaje = $resultado;
 
-        $this->view->render('api260260/articulos/crearm');
+        $this->view->render('articulos/creadoEX');
 
     } //end crear
 
