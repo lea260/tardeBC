@@ -28,6 +28,31 @@ class Articulos_Controller extends Controller
         $arr = [];
 
     }
+    public function nuevo(){
+        $this->view->render('articulos/nuevo');
+    }
+
+    
+    public function crear(){
+        $json = file_get_contents('php://input');
+        $obj = json_decode($json);
+
+        $articulo = new Articulo();
+        $articulo->codigo = $obj->codigo;
+        $articulo->descripcion = $obj->descripcion;
+        $articulo->precio = $obj->precio;
+        $articulo->fecha = $obj->fecha;
+
+        $resultado = $this->model->crear($articulo);
+
+        $respuesta = [
+            "ArituloId" => $resultado,
+        ];
+        $this->view->respuesta = json_encode($respuesta);
+
+        $this->view->render('api260260/articulos/crearm');
+
+    } //end crear
 
 }
 
