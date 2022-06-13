@@ -7,6 +7,6 @@ define('URL', 'http://' . $_SERVER['HTTP_HOST'] . '/tardeBC/');
 define('HOST', 'localhost');
 define('PORT', '3307');
 define('DB', 'tardebcv01');
-define('USER', 'usuario03');
-define('PASSWORD', "usuario03");
+define('USER', 'root');
+define('PASSWORD', '');
 define('CHARSET', 'utf8mb4');
