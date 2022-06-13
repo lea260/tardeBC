@@ -43,7 +43,7 @@
       <div class="col-lg-12 col-md-12 col-sm-12">
         <label for="articuloFecha" class="form-label">Fecha</label>
         <input type="date" class="form-control" id="articuloFecha" aria-describedby="emailHelp" name="fecha"
-          value="10-30-01">
+          value="2022-06-13">
       </div>
       <div class="col-lg-12 col-md-12 col-sm-12">
         <label for="articuloFecha" class="form-label">Fecha</label>
