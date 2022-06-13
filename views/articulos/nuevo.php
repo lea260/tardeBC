@@ -20,7 +20,7 @@
         <h1>Editar Articulo</h1>
       </div>
     </div>
-    <form id="form01" class="row" action="<?php echo constant('URL'); ?>articulos/actualizar" method="post"
+    <form id="form01" class="row" action="<?php echo constant('URL'); ?>articulos/crear" method="post"
       enctype="multipart/form-data">
       <div class="col-lg-12 col-md-12 col-sm-12">
         <label for="articuloId" class="form-label">Id</label>
@@ -44,7 +44,7 @@
       <div class="col-lg-12 col-md-12 col-sm-12">
         <label for="articuloFecha" class="form-label">Fecha</label>
         <input type="date" class="form-control" id="articuloFecha" aria-describedby="emailHelp" name="fecha"
-          value="10-10-2019">
+          value="2019-12-31">
       </div>
       <div class="col-lg-12 col-md-12 col-sm-12">
         <label for="articuloFecha" class="form-label">Fecha</label>
