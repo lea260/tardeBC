@@ -28,4 +28,17 @@ class Articulos_Controller extends Controller
         $this->view->render('articulos/listar');
         $arr = [];
     }
+
+    public function nuevo($param = null)
+    {
+
+        //obtiene todos los articulos
+        //$articulos = $this->model->listar();
+        //lo asigna a la varible articulos
+        //$this->view->listar = $articulos;
+        //lista los articulos
+        $this->view->render('articulos/nuevo');
+        // $arr = [];
+    }
+
 }
