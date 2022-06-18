@@ -60,7 +60,7 @@ class Articulos_Controller extends Controller
         $articulo->fecha       = $fecha;
         
         $resultado = $this->model->crear($articulo);
-        $this->view->$resultado = $resultado;
+        $this->view->resultado = $resultado;
         
         $this->view->render('articulos/crear');
         

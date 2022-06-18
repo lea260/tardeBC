@@ -57,9 +57,7 @@
       <div class="col-lg-6 col-md-6 col-sm-6 py-2">
         <button id="btnEnviarForm" type="submit" class="btn btn-success">Submit</button>
       </div>
-      <div class="col-lg-6 col-md-6 col-sm-6 py-2">
-        <span type="submit" class="btn btn-danger" id="enviarForm">Ajax</span>
-      </div>
+
 
 
 
