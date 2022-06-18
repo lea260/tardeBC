@@ -13,10 +13,17 @@ class Articulos_Controller extends Controller
     public function render()
     {
         //$alumnos = $this->model->get();
-        $this->view->alumnos = "cargado";
-        $this->view->render('login/index');
+        $this->view->mensaje = "cargado";
+        $this->view->render('articulos/index');
     }
 
+    public function nuevo($param = null)
+    {
+
+        //lista los articulos
+        $this->view->render('articulos/nuevo');
+
+    } //end listar
     public function listar($param = null)
     {
 
@@ -27,18 +34,26 @@ class Articulos_Controller extends Controller
         //lista los articulos
         $this->view->render('articulos/listar');
         $arr = [];
-    }
+    } //end listar
 
-    public function nuevo($param = null)
+    public function crear()
     {
 
-        //obtiene todos los articulos
-        //$articulos = $this->model->listar();
-        //lo asigna a la varible articulos
-        //$this->view->listar = $articulos;
-        //lista los articulos
-        $this->view->render('articulos/nuevo');
-        // $arr = [];
-    }
+        $codigo                = $_POST['codigo'];
+        $descripcion           = $_POST['descripcion'];
+        $precio                = $_POST['precio'];
+        $fecha                 = $_POST['fecha'];
+        $articulo              = new Articulo();
+        $articulo->codigo      = $codigo;
+        $articulo->descripcion = $descripcion;
+        $articulo->precio      = $precio;
+        $articulo->fecha       = $fecha;
+
+        $respuesta             = $this->model->crear($articulo);
+        $this->view->respuesta = $respuesta;
+
+        $this->view->render('articulos/crear');
+
+    } //end crear
 
 }
