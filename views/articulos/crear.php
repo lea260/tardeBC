@@ -14,21 +14,13 @@
 
 <body>
   <input type="hidden" value="<?php echo constant('URL'); ?>" id="url">
-  <?php require 'views/header4log.php';?>
+  <?php require 'views/header.php';?>
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12">
         <h1>Nuevo articulo creado</h1>
-        <?php if ($this->respuesta) {;?>
-        <div class="alert alert-success" role="alert">
-          articulo actualizado con exito <?=$this->respuesta;?>
-        </div>
-        <?php } else {
-    ;?><div class="alert alert-danger" role="alert">
-          error al actualizar
-        </div>
-        <?php }
-;?>
+        <?=$this->resultado;?>
+
       </div><!-- end col-->
     </div><!-- end row-->
   </div><!-- end container-->
