@@ -41,12 +41,11 @@ class Articulos_Controller extends Controller
         $articulo->descripcion = $_POST['descripcion'];
         $articulo->precio = $_POST['precio'];
         $articulo->fecha = $_POST['fecha'];
-
         $resultado = $this->model->crear($articulo);
 
-        $this->view->mensaje = $resultado;
+        $this->view->resultado = $resultado;
 
-        $this->view->render('articulos/creadoEX');
+        $this->view->render('articulos/crear');
 
     } //end crear
 
