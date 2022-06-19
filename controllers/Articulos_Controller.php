@@ -56,4 +56,15 @@ class Articulos_Controller extends Controller
 
     } //end crear
 
+    public function verArticulo($param = null)
+    {
+        $idArticulo = $param[0];
+        $articulo   = $this->model->verArticulo($idArticulo);
+
+        $_SESSION["id_articulo"] = $idArticulo;
+
+        $this->view->articulo = $articulo;
+        $this->view->render('articulos/verArticulo');
+    }
+
 }
