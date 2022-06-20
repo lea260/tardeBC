@@ -56,6 +56,28 @@ class Articulos_Controller extends Controller
 
     } //end crear
 
+    public function actualizar()
+    {
+
+        $id                    = $_POST['idaux'];
+        $codigo                = $_POST['codigo'];
+        $descripcion           = $_POST['descripcion'];
+        $precio                = $_POST['precio'];
+        $fecha                 = $_POST['fecha'];
+        $articulo              = new Articulo();
+        $articulo->id          = $id;
+        $articulo->codigo      = $codigo;
+        $articulo->descripcion = $descripcion;
+        $articulo->precio      = $precio;
+        $articulo->fecha       = $fecha;
+
+        $resultado             = $this->model->actualizar($articulo);
+        $this->view->resultado = $articulo->id;
+
+        $this->view->render('articulos/actualizar');
+
+    } //end crear
+
     public function verArticulo($param = null)
     {
         $idArticulo = $param[0];
@@ -64,7 +86,22 @@ class Articulos_Controller extends Controller
         $_SESSION["id_articulo"] = $idArticulo;
 
         $this->view->articulo = $articulo;
+
         $this->view->render('articulos/verArticulo');
+    }
+
+    public function eliminar($param = null)
+    {
+        $id = $_POST['idaux'];
+
+        if ($this->model->eliminar($id)) {
+            $mensaje = "Articulo eliminado correctamente";
+            //$this->view->mensaje = "Alumno eliminado correctamente";
+        } else {
+            $mensaje = "No se pudo eliminar al alumno";
+            //$this->view->mensaje = "No se pudo eliminar al alumno";
+        }
+        echo $mensaje;
     }
 
 }
