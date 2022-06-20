@@ -25,12 +25,12 @@
     </div>
     <form class="row" action="<?php echo constant('URL'); ?>login/ingresar" method="post" id="form01">
       <div class="col-lg-4 col-md-6 col-sm-12">
-        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <label for="exampleInputEmail1" class="form-label">Name User</label>
         <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="nombre"
           value="juan">
       </div>
       <div class="col-lg-4 col-md-6 col-sm-12">
-        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <label for="exampleInputPassword1" class="form-label">Password User</label>
         <input type="password" class="form-control" id="exampleInputPassword1" name="pass">
       </div>
       <div class="col-lg-12 col-md-12 col-sm-12 py-2">
