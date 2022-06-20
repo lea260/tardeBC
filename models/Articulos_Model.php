@@ -124,4 +124,31 @@ class Articulos_Model extends Model
         }
     } //end crear
 
+    public function eliminar($id)
+    {
+
+        $resultado = false;
+        $pdo       = $this->db->connect();
+
+        try {
+            $query = $pdo->prepare('DELETE FROM productos WHERE id_productos= :id');
+            $query->bindParam(':id', $id);
+            //:descripcion, :precio, :fecha
+            //$resultado = $query->execute();
+            $resultado = $query->execute();
+            $filasAf   = $query->rowCount();
+            /*if ($filasAf == 0) {
+            $resultado = false;
+            }*/
+            //$str = "valor";
+            //$resultado = $query->fetch(); // return (PDOStatement) or false on failure
+            //$query->close();
+            return $resultado;
+        } catch (PDOException $e) {
+            return false;
+        } finally {
+            $pdo = null;
+        }
+    } //end eliminar
+
 }
