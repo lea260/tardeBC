@@ -9,7 +9,7 @@ class Articulos_Controller extends Controller
         $this->view->resultadoLogin = "";
     }
 
-    //base+login
+    //base+articulos
     public function render()
     {
         //$alumnos = $this->model->get();
@@ -33,7 +33,7 @@ class Articulos_Controller extends Controller
         $this->view->listar = $articulos;
         //lista los articulos
         $this->view->render('articulos/listar');
-        $arr = [];
+        //$arr = [];
     } //end listar
 
     public function crear()
