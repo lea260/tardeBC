@@ -39,5 +39,15 @@ class Login_Controller extends Controller
         $this->view->render('login/login');
 
     }
+    public function signin(){
+        $user = new Usuario();
+        $user->email = $_POST['email'];
+        $user->password = $_POST['password'];
+        $id = $this->model->signin($user);
+        $_SESSION['id'] = serialize($id);
+        
 
-}
+        
+    }
+    
+        }

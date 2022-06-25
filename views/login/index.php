@@ -27,11 +27,11 @@
       <div class="col-lg-4 col-md-6 col-sm-12">
         <label for="exampleInputEmail1" class="form-label">Name User</label>
         <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="nombre"
-          value="juan">
+          value="juan@gmail.com">
       </div>
       <div class="col-lg-4 col-md-6 col-sm-12">
         <label for="exampleInputPassword1" class="form-label">Password User</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" name="pass">
+        <input type="password" class="form-control" id="exampleInputPassword1" name="pass" value="12345678">
       </div>
       <div class="col-lg-12 col-md-12 col-sm-12 py-2">
         <button type="submit" class="btn btn-primary">Submit</button>

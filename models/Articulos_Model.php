@@ -93,7 +93,7 @@ class Articulos_Model extends Model
             $pdo = null;
         }
     } //end actualizar
-public function crear($articulo)
+    public function crear($articulo)
     {
 
         $pdo = $this->db->connect();
@@ -120,5 +120,5 @@ public function crear($articulo)
             $pdo = null;
         }
     } //end crear
-    
+
 }

@@ -11,11 +11,10 @@ class Login_Model extends Model
         parent::__construct();
     }
 
-    
     public function obtenerUsuarioId($id)
     {
-        $lista      = unserialize($_SESSION['lista']);
-        
+        $lista = unserialize($_SESSION['lista']);
+
         $i          = 1;
         $Usuario    = null;
         $encontrado = false;
@@ -28,5 +27,5 @@ class Login_Model extends Model
             $i++;
         }
         return $Usuario;
-}
+    }
 }
