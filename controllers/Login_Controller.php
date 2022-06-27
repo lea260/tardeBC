@@ -28,11 +28,16 @@ class Login_Controller extends Controller
         $user->password = $_POST['password'];
         $id = $this->model->signin($user);
         $_SESSION['id'] = serialize($id);
-        
-
-        
     }
-    
+    public function test(){
+        $pass = "1234567890";
+        $hash = password_hash($pass, PASSWORD_BCRYPT , ['cost' => 10]);
+        $ret = password_verify($pass,$hash);
+        $this->view->hash = "Hash es: ".$hash;
+        $this->view->ret = "devolucion es: ".$ret;
+        $this->view->render('login/test');
+
+    }
 
     
 }
