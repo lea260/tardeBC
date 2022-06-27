@@ -56,4 +56,12 @@ class Login_Controller extends Controller
         //$this->view->render('index/index');
 
     }
+
+    public function test()
+    {
+        //$_SESSION["estalogueado"] = false;
+
+        $this->view->render('login/test');
+
+    }
 }
