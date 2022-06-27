@@ -21,6 +21,14 @@
         <h1>test encriptar</h1>
       </div>
     </div>
+    <?php if ($this->result) {;?>
+    <p> login exitoso </p>
+    <?=$this->hash;?>
+    <?php } else {
+    ;?><p>login fallo </p>
+    ;?>
+    <?php }
+;?>
 
   </div>
   <?php require 'views/footer.php';?>

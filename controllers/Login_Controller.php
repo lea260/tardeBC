@@ -60,7 +60,11 @@ class Login_Controller extends Controller
     public function test()
     {
         //$_SESSION["estalogueado"] = false;
-
+        $pwd                = '1234';
+        $hash               = password_hash($pwd, PASSWORD_BCRYPT, ['cost' => 10]);
+        $this->view->hash   = $hash;
+        $result             = password_verify($pwd, $hash);
+        $this->view->result = $result;
         $this->view->render('login/test');
 
     }
