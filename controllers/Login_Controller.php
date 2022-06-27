@@ -43,14 +43,18 @@ class Login_Controller extends Controller
             $this->view->render('login/index');
         }
 
+
+    }
+    public function test()
+         unset($_SESSION["estalogueado"]);
+         unset($_SESSION["nombre"]);
+         session_destroy();
+         $this->view->render('login/test');
     }
     public function salir()
     {
-        //$_SESSION["estalogueado"] = false;
-        unset($_SESSION["estalogueado"]);
-        unset($_SESSION["nombre"]);
-        session_destroy();
-        $this->view->render('index/index');
+        
+     
 
-    }
+      }  
 }
