@@ -32,6 +32,7 @@ class Login_Controller extends Controller
     }
     public function test()
     {
+
         $pass             = "1234567890";
         $hash             = password_hash($pass, PASSWORD_BCRYPT, ['cost' => 10]);
         $ret              = password_verify($pass, $hash);
@@ -40,8 +41,5 @@ class Login_Controller extends Controller
         $this->view->render('login/test');
 
     }
-<<<<<<< HEAD
 
-=======
->>>>>>> 3d94d65 (agregue contenido a login_controller.php y a articulos02_model.php)
 }
