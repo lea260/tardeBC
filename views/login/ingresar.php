@@ -20,7 +20,13 @@
     </div>
     <div class="row">
       <div class="col-sm">
-        <h1><?php echo $this->resultadoLogin; ?></h1>
+        <?php if  ($this->result) {;?>
+        <p> login exitoso </p>
+        <?=$this->hash;?>
+        <?php } else { 
+          ;?><p> login fallo </p>
+        <?php }
+        ;?>
       </div>
     </div>
     <form class="row" action="<?php echo constant('URL'); ?>login/ingresar" method="post" id="form01">
