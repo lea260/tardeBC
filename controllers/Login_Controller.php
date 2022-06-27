@@ -11,7 +11,6 @@ class Login_Controller extends Controller
         $this->view->mensaje        = "";
         $this->view->resultadoLogin = "";
     }
-
     public function render()
     {
         //$alumnos = $this->model->get();
@@ -41,5 +40,8 @@ class Login_Controller extends Controller
         $this->view->render('login/test');
 
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3d94d65 (agregue contenido a login_controller.php y a articulos02_model.php)
 }
