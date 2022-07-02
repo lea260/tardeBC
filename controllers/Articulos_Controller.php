@@ -64,7 +64,7 @@ class Articulos_Controller extends Controller
             move_uploaded_file($archivo, $ruta);
         }
 
-        $this->view->respuesta = 'hola';
+        $this->view->respuesta = 'halo';
 
         $this->view->render('articulos/crear');
 
