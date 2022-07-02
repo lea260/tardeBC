@@ -1,7 +1,6 @@
 <?php
 
-class Articulos_Controller extends Controller
-{
+class Articulos_Controller extends Controller{
     public function __construct()
     {
         parent::__construct();
@@ -41,8 +40,17 @@ class Articulos_Controller extends Controller
         $articulo->descripcion = $_POST['descripcion'];
         $articulo->precio = $_POST['precio'];
         $articulo->fecha = $_POST['fecha'];
+        $img = $_FILES['img']['tmp_name'];
+        $imgArray = explode(".", $_FILES['img']['name']);
+        $ext = $imgArray[count($imgArray) - 1];
         $resultado = $this->model->crear($articulo);
-
+        $path = 'public/img/articulos/' . $resultado . "." . $ext;
+        if(in_array($ext, array('jpg','png','jpeg','gif'))){
+            move_uploaded_file($img, $path);
+    
+        }
+        
+        
         $this->view->resultado = $resultado;
 
         $this->view->render('articulos/crear');
