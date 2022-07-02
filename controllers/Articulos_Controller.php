@@ -49,8 +49,8 @@ class Articulos_Controller extends Controller
         $articulo->precio      = $precio;
         $articulo->fecha       = $fecha;
 
-        $resultado             = $this->model->crear($articulo);
-        $this->view->resultado = $resultado;
+        $id                    = $this->model->crear($articulo);
+        $this->view->resultado = $id;
 
         $this->view->render('articulos/crear');
 
