@@ -1,5 +1,5 @@
 <?php
-
+require_once "entidades/articulos.php";
 class Articulos_Controller extends Controller
 {
     public function __construct()
@@ -45,18 +45,23 @@ class Articulos_Controller extends Controller
     public function crear()
     {
 
-        $codigo      = $_POST['codigo'];
-        $descripcion = $_POST['descripcion'];
-        $precio      = $_POST['precio'];
-        $fecha       = $_POST['fecha'];
-        $img         = $_FILES['img'];
-        $archivo     = $img['tmp_name'];
-        $nombre      = $img['name'];
-        $arr         = explode(".", $nombre);
-        $ext         = $arr[count($arr) - 1];
-        $id          = $this->model->crear($articulo);
+        $codigo                = $_POST['codigo'];
+        $descripcion           = $_POST['descripcion'];
+        $precio                = $_POST['precio'];
+        $fecha                 = $_POST['fecha'];
+        $img                   = $_FILES['img'];
+        $archivo               = $img['tmp_name'];
+        $nombre                = $img['name'];
+        $arr                   = explode(".", $nombre);
+        $ext                   = $arr[count($arr) - 1];
+        $articulo              = new Articulo();
+        $articulo->codigo      = $codigo;
+        $articulo->descripcion = $descripcion;
+        $articulo->precio      = $precio;
+        $articulo->fecha       = $fecha;
+        $id                    = $this->model->crear($articulo);
 
-        $ruta = "public/imagenes/articulos" . $id . "." . $ext;
+        $ruta = "public/imagenes/articulos/" . $id . "." . $ext;
         move_uploaded_file($archivo, $ruta);
 
         $articulo              = new Articulo();
