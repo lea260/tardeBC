@@ -116,6 +116,8 @@ class Articulos_Model extends Model
                 //echo $consulta->errorInfo()[2];
             }
             //$query->close();
+
+            //actulizar la url
             return $lastInsertId;
         } catch (PDOException $e) {
             return -1;
