@@ -28,7 +28,7 @@ History
       <div class="col-lg-12 col-md-12 col-sm-12">
         <h1>Nuevo articulo creado</h1>
 
-        <?=$this->resultado;?>
+        <?=$this->id;?>
         <!-- end col-->
       </div><!-- end row-->
     </div><!-- end container-->

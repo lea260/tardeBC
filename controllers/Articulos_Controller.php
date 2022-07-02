@@ -45,24 +45,29 @@ class Articulos_Controller extends Controller
     public function crear()
     {
 
-        //obtengo los datos de la peticion http, post body
-       // $json = file_get_contents('php://input');
-        //convierto en un array asociativo de php
-        //$obj = json_decode($json);
-        $codigo = $_POST['codigo'];
+        $codigo      = $_POST['codigo'];
         $descripcion = $_POST['descripcion'];
-        $precio = $_POST['precio'];
-        $fecha = $_POST['fecha'];       
+        $precio      = $_POST['precio'];
+        $fecha       = $_POST['fecha'];
+        $img         = $_FILES['img'];
+        $archivo     = $img['tmp_name'];
+        $nombre      = $img['name'];
+        $arr         = explode(".", $nombre);
+        $ext         = $arr[count($arr) - 1];
+        $id          = $this->model->crear($articulo);
+
+        $ruta = "public/imagenes/articulos" . $id . "." . $ext;
+        move_uploaded_file($archivo, $ruta);
+
         $articulo              = new Articulo();
         $articulo->codigo      = $codigo;
         $articulo->descripcion = $descripcion;
         $articulo->precio      = $precio;
         $articulo->fecha       = $fecha;
-        
-        $resultado = $this->model->crear($articulo);
-        $this->view->resultado = $resultado;
-        
+
+        $this->view->$id = $id;
+
         $this->view->render('articulos/crear');
-        
+
     } //end crear
 }

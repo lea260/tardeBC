@@ -13,10 +13,6 @@
 
 <body>
 
-  <?php require 'views/header.php';?>
-
-  <input type="hidden" value="<?php echo constant('URL'); ?>" id="url">
-
   <div class="container">
 
     <h1>pagina ara</h1>

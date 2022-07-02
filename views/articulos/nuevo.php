@@ -33,12 +33,12 @@
       <div class="col-lg-12 col-md-12 col-sm-12">
         <label for="articuloDescripcion" class="form-label">Descripcion</label>
         <input type="text" class="form-control" id="articuloDescripcion" aria-describedby="emailHelp" name="descripcion"
-          value="20-28-03">
+          value="descrip">
       </div>
       <div class="col-lg-12 col-md-12 col-sm-12">
         <label for="articuloPrecio" class="form-label">Precio</label>
         <input type="text" class="form-control" id="articuloPrecio" aria-describedby="emailHelp" name="precio"
-          value="30-10-02">
+          value="500.6">
       </div>
       <div class="col-lg-12 col-md-12 col-sm-12">
         <label for="articuloFecha" class="form-label">Fecha</label>
