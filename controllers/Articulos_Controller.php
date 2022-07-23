@@ -49,8 +49,14 @@ class Articulos_Controller extends Controller
         $articulo->precio      = $precio;
         $articulo->fecha       = $fecha;
 
-        $resultado             = $this->model->crear($articulo);
-        $this->view->resultado = $resultado;
+        $id                    = $this->model->crear($articulo);
+        $this->view->resultado = $id;
+        $pathImg               = $_FILES['img']['tmp_name'];
+        $tmpName               = $_FILES['img']['name'];
+        $array                 = explode(".", $tmpName);
+        $ext                   = $array[count($array) - 1];
+        $ruta                  = 'public/imagenes/articulos/' . $id . "." . $ext;
+        move_uploaded_file($pathImg, $ruta);
 
         $this->view->render('articulos/crear');
 
