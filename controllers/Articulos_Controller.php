@@ -51,6 +51,7 @@ class Articulos_Controller extends Controller{
         }
         
         
+        
         $this->view->resultado = $resultado;
 
         $this->view->render('articulos/crear');
