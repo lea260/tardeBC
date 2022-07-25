@@ -1,4 +1,5 @@
 <?php
+require_once "entidades/articulos.php";
 
 class Apiarticulos_Controller extends Controller
 {
@@ -14,9 +15,10 @@ class Apiarticulos_Controller extends Controller
     {
 
         $mensaje   = "hola desde la api";
+        $lista     = $this->model->listar();
         $respuesta = [
-            "datos" => "error al ingresar",
-            "totalResultados" => 0,
+            "datos" => $lista,
+            "totalResultados" => count($lista),
             "mensaje" => $mensaje,
         ];
         $this->view->respuesta = json_encode($respuesta);
