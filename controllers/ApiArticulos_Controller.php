@@ -1,6 +1,6 @@
 <?php
 
-class ApiArticulos_Controller extends Controller
+class Apiarticulos_Controller extends Controller
 {
     public function __construct()
     {
@@ -16,13 +16,14 @@ class ApiArticulos_Controller extends Controller
     public function listar()
     {
         $mensaje   = "Hola desde la Api";
+        $lista     = $this->model->listar();
         $respuesta = [
-            "datos" => "error al ingresar",
-            "totalResultados" => 0,
+            "lista" => $lista,
+            "totalResultados" => count($lista),
             "mensaje" => $mensaje,
         ];
         $this->view->respuesta = json_encode($respuesta);
-        $this->view->render("ApiArticulos/listar");
+        $this->view->render("apiarticulos/listar");
     }
 
 }
