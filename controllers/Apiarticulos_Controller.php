@@ -22,9 +22,10 @@ class Apiarticulos_Controller extends Controller
     public function listar()
     {
         $mensaje   = "hola desde la api";
+        $lista     = $this->model->listar();
         $respuesta = [
-            "datos" => "error al ingresar",
-            "totalResultados" => 0,
+            "lista" => $lista,
+            "totalResultados" => count($lista),
             "mensaje" => $mensaje,
         ];
         $this->view->respuesta = json_encode($respuesta);
