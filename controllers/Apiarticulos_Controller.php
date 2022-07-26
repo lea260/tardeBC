@@ -7,8 +7,6 @@ class Apiarticulos_Controller extends Controller
         parent::__construct();
 
     }
-
-    //localahost/prophp3bj/proyectoPHPComun/Api260260articulos
     public function render()
     {
 
@@ -21,7 +19,7 @@ class Apiarticulos_Controller extends Controller
 
     public function listar()
     {
-        $mensaje   = "hola desde la api";
+        $mensaje   = "Esto no se como pero se supone que tiene que funcionar";
         $lista     = $this->model->listar();
         $respuesta = [
             "lista" => $lista,

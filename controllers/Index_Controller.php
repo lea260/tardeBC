@@ -5,9 +5,6 @@ class Index_Controller extends Controller
     public function __construct()
     {
         parent::__construct();
-        //$this->view->mensaje = "Hay un error al cargar el recurso";
-
-        //echo "<p>Controlador Index</p>";
     }
 
     public function render()
@@ -17,6 +14,8 @@ class Index_Controller extends Controller
 
     public function saludo()
     {
-        echo "<p>Hola a todos<p>";
+        echo "<p>Porque rayos abría que saludar a alguien.<p>";
+        echo "<p>Acá solo saludamos a los verdaderos hombres.<p>";
+        echo "<p>Y vos no sos uno, así que rajá de acá.<p>";
     }
 }

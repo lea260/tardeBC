@@ -1,10 +1,4 @@
 <?php
-
-//require_once 'config/config.php';
-
-/*manejo de ccookies */
-//var_dump(constant('URL'));
-
 class Controller
 {
     public $model;
@@ -14,18 +8,11 @@ class Controller
     {
         $this->view = new View();
         session_start();
-        //echo "<p>Controlador principal</p>";
     }
 
-    //carga el modelo si existe
-    public function loadModel($model)
+    public function loadModel($model) //Si existe el modelo, lo carga
     {
-        //var_dump($this);
-
         $url = 'models/' . ucfirst($model) . '_Model.php';
-        //$url = 'models/' . ucfirst($model) . '_Model.php';
-        //var_dump($url);
-
         if (file_exists($url)) {
             require $url;
 

@@ -11,18 +11,16 @@ class Login_Controller extends Controller
         $this->view->resultadoLogin = "";
     }
 
-    //base+login
-    public function render()
+    public function render() //Se renderiza el login
     {
-        //$alumnos = $this->model->get();
         $this->view->alumnos = "cargado";
         $this->view->render('login/index');
     }
 
     public function ingresar()
     {
-        $nombre     = $_POST['nombre'];
-        $pass       = $_POST['pass'];
+        $nombre= $_POST['nombre'];
+        $pass= $_POST['pass'];
         $exitoLogin = $this->model->ingresar($nombre, $pass);
         if ($exitoLogin) {
             $token = Auth::SignIn([
@@ -30,10 +28,10 @@ class Login_Controller extends Controller
                 'name' => $nombre,
                 'role' => 'cliente',
             ]);
-            $this->view->token        = $token;
+            $this->view->token= $token;
             $_SESSION["estalogueado"] = true;
-            $_SESSION["nombre"]       = $nombre;
-            $_SESSION["rol"]          = "cliente";
+            $_SESSION["nombre"]= $nombre;
+            $_SESSION["rol"]= "cliente";
             $this->view->render('login/ingresar');
         } else {
             $this->view->resultadoLogin = "usuario o contraseña incorrectos";
@@ -41,9 +39,8 @@ class Login_Controller extends Controller
         }
 
     }
-    public function salir()
+    public function salir() //Borra los valores de el nombre del supuesto logeado y cambia a false el valor de [estalogeado]
     {
-        //$_SESSION["estalogueado"] = false;
         unset($_SESSION["estalogueado"]);
         unset($_SESSION["nombre"]);
         session_destroy();
@@ -52,7 +49,6 @@ class Login_Controller extends Controller
 
     public function test()
     {
-        //$_SESSION["estalogueado"] = false;
         $pwd                = '1234';
         $hash               = password_hash($pwd, PASSWORD_BCRYPT, ['cost' => 10]);
         $this->view->hash   = $hash;
