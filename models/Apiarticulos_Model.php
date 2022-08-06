@@ -45,4 +45,32 @@ class Apiarticulos_Model extends Model
         }
     }
 
+    public function crear($articulo)
+    {
+
+        $pdo = $this->db->connect();
+        try {
+            $query = $pdo->prepare('insert into productos (codigo, descripcion,precio, fecha) values (:codigo, :descripcion, :precio, :fecha)');
+            $query->bindParam(':codigo', $articulo->codigo);
+            $query->bindParam(':descripcion', $articulo->descripcion);
+            $query->bindParam(':precio', $articulo->precio);
+            $query->bindParam(':fecha', $articulo->fecha);
+            //:descripcion, :precio, :fecha
+            $lastInsertId = 0;
+            if ($query->execute()) {
+                $lastInsertId = $pdo->lastInsertId();
+            } else {
+                //Pueden haber errores, como clave duplicada
+                $lastInsertId = -1;
+                //echo $consulta->errorInfo()[2];
+            }
+            //$query->close();
+            return $lastInsertId;
+        } catch (PDOException $e) {
+            return -1;
+        } finally {
+            $pdo = null;
+        }
+    } //end crear
+
 }
