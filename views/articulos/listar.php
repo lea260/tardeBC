@@ -13,7 +13,7 @@
 </head>
 
 <body>
-  <input type="hidden" value="<?php echo constant('URL'); ?>" id="url">
+  <input type="text" value="<?php echo constant('URL'); ?>" id="url">
   <?php require 'views/header.php';?>
   <div class="container">
     <div class="row">
@@ -38,6 +38,8 @@
             <input id="art-<?=$value->id;?>" class="form-control" value="1" type="number"></p>
             <a type="button" class="btn btn-primary btnAgregar"
               href="<?php echo constant('URL'); ?>articulos/verArticulo/<?=$value->id;?>">Ver</a>
+            <button type="button" class="btn btn-primary btnAgregar"
+              data-articulo-id="<?=$value->id;?>">agregar</button>
           </div>
 
         </div><!-- end card -->
@@ -49,7 +51,7 @@
 
     </div><!-- end row -->
   </div><!-- end container-->
-  <?php //var_dump($this->articulos);;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;?>
+  <?php //var_dump($this->articulos);;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;?>
   <?php require 'views/footer.php';?>
 
 
