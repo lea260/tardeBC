@@ -104,11 +104,8 @@ class Apiarticulos_Model extends Model
             if ($query->execute()) {
                 $lastInsertId = $pdo->lastInsertId();
             } else {
-
                 $lastInsertId = -1;
             }
-            
-            //$query->close();
             return $lastInsertId;
         } catch (PDOException $e) {
             return -1;

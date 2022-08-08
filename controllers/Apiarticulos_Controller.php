@@ -28,7 +28,6 @@ class Apiarticulos_Controller extends Controller
     public function crear()
     {
         $datos = json_decode(file_get_contents('php://input'));
-
         $articulo              = new Articulo();
         $articulo->codigo      = $datos->codigo;
         $articulo->descripcion = $datos->descripcion;
