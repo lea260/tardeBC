@@ -8,7 +8,10 @@ class Articulos_Controller extends Controller
         $this->view->mensaje        = "";
         $this->view->resultadoLogin = "";
     }
-
+    public function nuevo()
+    {
+        $this->view->render("articulos/nuevo");
+    }
     //base+login
     public function render()
     {
