@@ -1,2 +1,5 @@
+git config --global user.name "Maticerde"
+git config --global user.email maticerde@gmail.com
+
 clase 1/8/22 -- matias cerdeña
 clase 8/8/22 -- matias cerdeña
