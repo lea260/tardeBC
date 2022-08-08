@@ -45,7 +45,7 @@ class Login_Controller extends Controller
 
 
     }
-    public function test()
+    public function test(){
          unset($_SESSION["estalogueado"]);
          unset($_SESSION["nombre"]);
          session_destroy();
@@ -57,4 +57,4 @@ class Login_Controller extends Controller
      
 
       }  
-}
+    }
