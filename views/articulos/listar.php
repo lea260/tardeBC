@@ -13,7 +13,7 @@
 </head>
 
 <body>
-  <input type="hidden" value="<?php echo constant('URL'); ?>" id="url">
+  <input type="text" value="<?php echo constant('URL'); ?>" id="url">
   <?php require 'views/header.php';?>
   <div class="container">
     <div class="row">
@@ -49,13 +49,13 @@
 
     </div><!-- end row -->
   </div><!-- end container-->
-  <?php //var_dump($this->articulos);;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;?>
   <?php require 'views/footer.php';?>
 
 
 
   <!-- importo el javascript-->
-  <script src=" <?php echo constant('URL'); ?>public/js/articulos/listarJQ.js"></script>
+  <script src=" <?php echo constant('URL'); ?>public/js/articulos/listar.js">
+  </script>
   <!--<script src="<?php echo constant('URL'); ?>/public/js/main.js"></script> -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
