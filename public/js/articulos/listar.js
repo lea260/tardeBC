@@ -1,4 +1,4 @@
-(function ($, $param) {
+(function ($) {
   $(document).ready(function () {
     //console.log(param);
     let carritoStr = localStorage.getItem("carrito");
@@ -95,4 +95,4 @@
       }); //end item click
     }); //end item click items foreach
   }); //end ready
-})(jQuery, "hola");
+})(jQuery);
