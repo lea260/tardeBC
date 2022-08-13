@@ -22,5 +22,15 @@
       .fail(function (jqXHR, textStatus, errorThrown) {
         console.log(textStatus);
       });
+    $(".btnAgregar").each(function (index) {
+      $(this).on("click", function () {
+        //console.log("hola");
+        //let articuloId = this.dataset.articuloId;
+        let articuloId = $(this).data("articuloId");
+        let articuloDescripcion = $(this).data("articuloDescripcion");
+        let articuloCodigo = $(this).data("articuloCodigo");
+        console.log(articuloId);
+      });
+    });
   });
 })(jQuery);
