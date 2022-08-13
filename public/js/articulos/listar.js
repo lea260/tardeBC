@@ -37,8 +37,8 @@
         let articuloId = $(this).data("articuloId");
         let articuloDescripcion = $(this).data("articuloDescripcion");
         let articuloCodigo = $(this).data("articuloCodigo");
-
         let articulo = $listaArticulos.find((art) => art.id == articuloId);
+
         carrito = JSON.parse(localStorage.getItem("carrito"));
         if (carrito == null) {
           //inicilizo el carrito
@@ -48,7 +48,7 @@
           if (cantidadAux >= 1) {
             cantidad = cantidadAux;
           }
-          //console.log("cantidad:" + cantidad);
+
           carrito = [];
           console.log();
           item = {
@@ -65,6 +65,7 @@
         } else {
           //ya tienen por lo menos un item
           let cantidadAux = $("#art-" + articuloId).val();
+
           let cantidad = 1;
           if (cantidadAux >= 1) {
             cantidad = cantidadAux;

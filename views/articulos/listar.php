@@ -35,8 +35,7 @@
             <p class="card-text">$ <?=$value->precio;?></p>
             <input id="art-<?=$value->id;?>" class="form-control" value="1" type="number"></p>
 
-            <button type="button" class="btn btn-primary btnAgregar"
-              data-articulo-id="=<?=$value->id?>">Agregar</button>
+            <button type="button" class="btn btn-primary btnAgregar" data-articulo-id="<?=$value->id?>">Agregar</button>
           </div>
         </div><!-- end card -->
       </div><!-- end col --><?php }
