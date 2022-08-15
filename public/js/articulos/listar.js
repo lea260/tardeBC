@@ -52,7 +52,8 @@
         // agrego el elemento al carrito
         carritoArr.push(item);
        }else{
-
+        carritoArr.push(item);
+       localStorage.setItem("carrito",JSON.stringify(carritoArr));   
         }
         console.log(item);
       });
