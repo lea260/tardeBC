@@ -17,16 +17,14 @@
 
   <input type="hidden" value="<?php echo constant('URL'); ?>" id="url">
 
-  <div class="container">
+  <h1>Pajina Default</h1>
+  <h2><?=$this->mensaje;?></h2>
 
-    <h1>pagina ara</h1>
-    <h2><?=$this->mensaje;?></h2>
-
-    <?php require 'views/footer.php';?>
+  <?php require 'views/footer.php';?>
 
 
-    <!-- importo el javascript-->
-    <script src="<?php echo constant('URL'); ?>/public/js/main.js"></script>
+  <!-- importo el javascript-->
+  <script src="<?php echo constant('URL'); ?>/public/js/main.js"></script>
 
 </body>
 

@@ -3,7 +3,7 @@
 // require_once 'entidades/alumno.php';
 require_once 'entidades/articulo.php';
 
-class Articulos_Model extends Model
+class Apiarticulos_Model extends Model
 {
 
     public function __construct()
@@ -104,11 +104,8 @@ class Articulos_Model extends Model
             if ($query->execute()) {
                 $lastInsertId = $pdo->lastInsertId();
             } else {
-
                 $lastInsertId = -1;
             }
-            
-            //$query->close();
             return $lastInsertId;
         } catch (PDOException $e) {
             return -1;

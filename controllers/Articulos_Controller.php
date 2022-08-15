@@ -1,7 +1,6 @@
 <?php
 
-class Articulos_Controller extends Controller
-{
+class Articulos_Controller extends Controller{
     public function __construct()
     {
         parent::__construct();
@@ -9,18 +8,16 @@ class Articulos_Controller extends Controller
         $this->view->resultadoLogin = "";
     }
 
+    //base+login
     public function render()
     {
+        //$alumnos = $this->model->get();
         $this->view->mensaje = "cargado";
-        $this->view->render('articulos/index');
-
+        $this->view->render('artriculos/index');
     }
-
-    //base+login
 
     public function listar($param = null)
     {
-
         //obtiene todos los articulos
         $articulos = $this->model->listar();
         //lo asigna a la varible articulos
@@ -28,41 +25,39 @@ class Articulos_Controller extends Controller
         //lista los articulos
         $this->view->render('articulos/listar');
         $arr = [];
+
     }
-
-    public function nuevo($param = null)
-    {
-
-        //obtiene todos los articulos
-        //$articulos = $this->model->listar();
-        //lo asigna a la varible articulos
-        //$this->view->lista = $articulos;
-        //lista los articulos
+    public function nuevo(){
         $this->view->render('articulos/nuevo');
-        //$arr = [];
     }
 
-    public function crear()
-    {
+    
+    public function crear(){
+        
 
-        //obtengo los datos de la peticion http, post body
-       // $json = file_get_contents('php://input');
-        //convierto en un array asociativo de php
-        //$obj = json_decode($json);
-        $codigo = $_POST['codigo'];
-        $descripcion = $_POST['descripcion'];
-        $precio = $_POST['precio'];
-        $fecha = $_POST['fecha'];       
-        $articulo              = new Articulo();
-        $articulo->codigo      = $codigo;
-        $articulo->descripcion = $descripcion;
-        $articulo->precio      = $precio;
-        $articulo->fecha       = $fecha;
-        
+        $articulo = new Articulo();
+        $articulo->codigo = $_POST['codigo'];
+        $articulo->descripcion = $_POST['descripcion'];
+        $articulo->precio = $_POST['precio'];
+        $articulo->fecha = $_POST['fecha'];
+        $img = $_FILES['img']['tmp_name'];
+        $imgArray = explode(".", $_FILES['img']['name']);
+        $ext = $imgArray[count($imgArray) - 1];
         $resultado = $this->model->crear($articulo);
-        $this->view->$resultado = $resultado;
+        $path = 'public/img/articulos/' . $resultado . "." . $ext;
+        if(in_array($ext, array('jpg','png','jpeg','gif'))){
+            move_uploaded_file($img, $path);
+    
+        }
         
+        
+        
+        $this->view->resultado = $resultado;
+
         $this->view->render('articulos/crear');
-        
+
     } //end crear
+
 }
+
+;

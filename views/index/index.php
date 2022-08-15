@@ -28,7 +28,6 @@
 
 
       <?php require 'views/footer.php';?>
-      <h1> pagina principial </h1>
 
 
       <!-- importo el javascript-->

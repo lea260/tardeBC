@@ -11,7 +11,8 @@
 </head>
 
 <body>
-
+  <input type="hidden" value="<?php echo constant('URL'); ?>" id="url">
+  <!-- <?php require 'views/header.php';?> -->
 
   <div class="container">
     <div class="row">
@@ -24,26 +25,26 @@
       <div class="col-lg-12 col-md-12 col-sm-12">
         <label for="articuloId" class="form-label">Id</label>
         <input type="text" class="form-control" id="articuloId" aria-describedby="emailHelp" name="id" disabled
-          value="15">
+          value="32">
       </div>
       <div class="col-lg-12 col-md-12 col-sm-12">
         <label for="articuloCodigo" class="form-label">Codigo</label>
-        <input type="text" class="form-control" id="articuloCodigo" name="codigo" value="<585">
+        <input type="text" class="form-control" id="articuloCodigo" name="codigo" value="1580">
       </div>
       <div class="col-lg-12 col-md-12 col-sm-12">
         <label for="articuloDescripcion" class="form-label">Descripcion</label>
         <input type="text" class="form-control" id="articuloDescripcion" aria-describedby="emailHelp" name="descripcion"
-          value="20-28-03">
+          value="Helo">
       </div>
       <div class="col-lg-12 col-md-12 col-sm-12">
         <label for="articuloPrecio" class="form-label">Precio</label>
         <input type="text" class="form-control" id="articuloPrecio" aria-describedby="emailHelp" name="precio"
-          value="30-10-02">
+          value="150">
       </div>
       <div class="col-lg-12 col-md-12 col-sm-12">
         <label for="articuloFecha" class="form-label">Fecha</label>
         <input type="date" class="form-control" id="articuloFecha" aria-describedby="emailHelp" name="fecha"
-          value="2022-06-13">
+          value="2020-05-31">
       </div>
       <div class="col-lg-12 col-md-12 col-sm-12">
         <label for="articuloFecha" class="form-label">Fecha</label>
@@ -57,18 +58,9 @@
       <div class="col-lg-6 col-md-6 col-sm-6 py-2">
         <button id="btnEnviarForm" type="submit" class="btn btn-success">Submit</button>
       </div>
-      <div class="col-lg-6 col-md-6 col-sm-6 py-2">
-        <span type="submit" class="btn btn-danger" id="enviarForm">Ajax</span>
-      </div>
-
-
-
 
     </form>
   </div>
-
-
-
 
   <?php require 'views/footer.php';?>
 
