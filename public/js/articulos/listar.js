@@ -49,6 +49,10 @@
         let carritoArr=[];
         if (carritoStr) {
         JSON.parse(carritoStr);  
+        // agrego el elemento al carrito
+        carritoArr.push(item);
+       }else{
+
         }
         console.log(item);
       });
