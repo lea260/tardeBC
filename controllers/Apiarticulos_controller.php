@@ -17,7 +17,7 @@ class Apiarticulos_Controller extends Controller
         $mensaje   = "hola desde la api";
         $lista     = $this->model->listar();
         $respuesta = [
-            "datos" => $lista,
+            "lista" => $lista,
             "totalResultados" => count($lista),
             "mensaje" => $mensaje,
         ];
