@@ -33,6 +33,20 @@
         console.log(articuloId);
         let articulo = $lista.find((art) => art.id == articuloId);
         console.log(articulo);
+        //
+        let item = {
+          id: $id,
+          precio: articulo.precio,
+          descripcion: articulo.descripcion,
+          url: articulo.url,
+          cantidad: cantidad,
+        };
+        let carritoStr = localStorage.getItem("carrito");
+        let carritoArr = [];
+        if (carritoStr) {
+          JSON.parse(carritoStr);
+        }
+        console.log(item);
       });
     });
   }); //end ready
