@@ -1,3 +1,1 @@
-# proyectoPHPComunn
-
-Hola
+# proyectoPHPComun
