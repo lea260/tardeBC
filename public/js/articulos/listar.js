@@ -30,7 +30,28 @@
         let articuloId = $(this).data("articuloId");
         let articuloDescripcion = $(this).data("articuloDescripcion");
         let articuloCodigo = $(this).data("articuloCodigo");
-        console.log(articuloId);
+        //console.log(articuloId);
+        let articulo = $lista.find((art) => art.id == $id);
+        console.log(articulo);
+        let cantidad = $("#art-" + $id).val();
+        console.log("cantidad:" + cantidad);
+        let item = {
+          id: $id,
+          precio: articulo.precio,
+          descripcion: articulo.descripcion,
+          codigo,
+        };
+
+        let carritoStr = localStorage.getItem("carrito");
+        let carritoArr = [];
+        if (carritoStr) {
+          carritoArr = JSON.parse(carritoStr);
+          carritoArr.push(item);
+        } else {
+          carritoArr.push(item);
+          localStorage.setItem("carrito", JSON.stringify(carritoArr));
+        }
+        console.log(item);
       });
     });
   }); //end ready
