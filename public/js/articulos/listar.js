@@ -38,56 +38,39 @@
         let articuloDescripcion = $(this).data("articuloDescripcion");
         let articuloCodigo = $(this).data("articuloCodigo");
         let articulo = $listaArticulos.find((art) => art.id == articuloId);
+        let cantidad = 1; 
+        if ($("#art-" + articuloId).val() >= 1) {
+          cantidad = $("#art-" + articuloId).val();
+        }
+        console.log(cantidad);
+        item = {
+          id: articulo.id,
+          precio: articulo.precio,
+          descripcion: articulo.Descripcion,
+          codigo: articulo.Codigo,
+          cantidad: cantidad,
+          url: articulo.url,
+        };
 
         carrito = JSON.parse(localStorage.getItem("carrito"));
         if (carrito == null) {
-          //inicilizo el carrito
-          //agrego el elememto al carrito
-          let cantidadAux = $("#art-" + articuloId).val();
-          let cantidad = 1;
-          if (cantidadAux >= 1) {
-            cantidad = cantidadAux;
-          }
-
           carrito = [];
-          console.log();
-          item = {
-            id: articulo.id,
-            precio: articulo.precio,
-            descripcion: articulo.Descripcion,
-            codigo: articulo.Codigo,
-            cantidad: cantidad,
-            url: articulo.url,
-          };
           carrito.push(item);
           localStorage.setItem("carrito", JSON.stringify(carrito));
           $("#cantidadElemCarrito").text(carrito.length);
         } else {
-          //ya tienen por lo menos un item
-          let cantidadAux = $("#art-" + articuloId).val();
-
-          let cantidad = 1;
-          if (cantidadAux >= 1) {
-            cantidad = cantidadAux;
-          }
-          //console.log("cantidad:" + cantidad);
-          //console.log();
-          item = {
-            id: articulo.id,
-            precio: articulo.precio,
-            descripcion: articuloDescripcion,
-            codigo: articuloCodigo,
-            cantidad: cantidad,
-            url: articulo.url,
-          };
           let itemCarrito = carrito.find(
             (articulo) => articulo.id == articuloId
           );
-          //console.log("itemCarrito: "+itemCarrito);
+          
           if (itemCarrito == undefined) {
             carrito.push(item);
             localStorage.setItem("carrito", JSON.stringify(carrito));
-            $("#cantidadElemCarrito").text(carrito.length);
+          }else{
+            carrito.splice(carrito.findIndex((i) => i == itemCarrito), 1);
+            carrito.push(item);
+            localStorage.setItem("carrito", JSON.stringify(carrito));
+
           }
         }
         
