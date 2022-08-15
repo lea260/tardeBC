@@ -31,6 +31,8 @@
         let articuloDescripcion = $(this).data("articuloDescripcion");
         let articuloCodigo = $(this).data("articuloCodigo");
         console.log(articuloId);
+        let articulo = $lista.find((art) => art.id == articuloId);
+        console.log(articulo);
       });
     });
   }); //end ready
