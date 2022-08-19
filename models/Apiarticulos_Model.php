@@ -3,7 +3,7 @@
 #require_once 'entidades/alumno.php';
 require_once 'entidades/articulos.php';
 
-class Articulos_Model extends Model
+class Apiarticulos_Model extends Model
 {
 
     public function __construct()
@@ -93,7 +93,7 @@ class Articulos_Model extends Model
             $pdo = null;
         }
     } //end actualizar
-public function crear($articulo)
+    public function crear($articulo)
     {
 
         $pdo = $this->db->connect();
@@ -120,5 +120,5 @@ public function crear($articulo)
             $pdo = null;
         }
     } //end crear
-    
+
 }

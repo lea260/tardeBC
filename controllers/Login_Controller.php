@@ -1,13 +1,13 @@
 <?php
-require_once 'vendor/autoload.php';
-require_once 'auth/Auth.php';
+#require_once 'vendor/autoload.php';
+#require_once 'auth/Auth.php';
 
 class Login_Controller extends Controller
 {
     public function __construct()
     {
         parent::__construct();
-        $this->view->mensaje = "";
+        $this->view->mensaje        = "";
         $this->view->resultadoLogin = "";
     }
 
@@ -21,33 +21,31 @@ class Login_Controller extends Controller
 
     public function ingresar()
     {
-        $nombre = $_POST['nombre'];
-        $pass = $_POST['pass'];
-        $exitoLogin = $this->model->ingresar($nombre, $pass);
-        if ($exitoLogin) {
-            $token = Auth::SignIn([
-                'id' => 1,
-                'name' => $nombre,
-                'role' => 'cliente',
-            ]);
-            $this->view->token = $token;
-            $_SESSION["estalogueado"] = true;
-            $_SESSION["nombre"] = $nombre;
-            $_SESSION["rol"] = "cliente";
-            $this->view->render('login/ingresar');
-        } else {
-            $this->view->resultadoLogin = "usuario o contraseña incorrectos";
-            $this->view->render('login/index');
-        }
-
+        $nombre     = $_POST['nombre'];
+        $password   = $_POST['password'];
+        $exitoLogin = $this->model->ingresar($nombre, $password);
     }
-    public function salir()
+    public function test()
     {
         //$_SESSION["estalogueado"] = false;
         unset($_SESSION["estalogueado"]);
         unset($_SESSION["nombre"]);
         session_destroy();
-        $this->view->render('index/index');
+        $this->view->render('login/test');
 
     }
-}
+    public function login()
+    {
+         $pwd='1234';
+         $hash = password_hash($pwd,PASSWORD_BCRYPT,['cost'=>10,]);
+         $this->view->hash=$hash;
+         $result= password_verify($pwd,$hash);
+         $this->view->result=$result;
+         
+         $this->view->render('login/test');
+        
+
+    }
+ 
+        
+    } 
