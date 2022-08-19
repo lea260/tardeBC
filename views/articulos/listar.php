@@ -36,10 +36,9 @@
             <p class="card-text"><?=$value->descripcion;?></p>
             <p class="card-text">$ <?=$value->precio;?></p>
             <input id="art-<?=$value->id;?>" class="form-control" value="1" type="number"></p>
-            <a type="" buttonclass="btn btn-primary"
-              href="<?php echo constant("URL"); ?>articulos/verArticulo/<?=$value->id;?>">Ver</a>
-            <button type="button" class="btn btn-primary btnAgregar"
-              data-articulo-id="<?=$value->id;?>">Agregar</button>
+            <button type="button" class="btn btn-primary btnAgregar" data-articulo-id="<?php echo $value->id; ?>"
+              data-articulo-descripcion="<?php echo $value->descripcion; ?>"
+              data-articulo-codigo="<?php echo $value->codigo; ?>">Agregar</button>
           </div>
         </div><!-- end card -->
       </div><!-- end col --><?php }
@@ -50,13 +49,17 @@
 
     </div><!-- end row -->
   </div><!-- end container-->
-  <?php //var_dump($this->articulos);;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;?>
+  <?php //var_dump($this->articulos);;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;?>
   <?php require 'views/footer.php';?>
 
 
-
+  <!-- TESTSs -->
   <!-- importo el javascript-->
-  <script src="<?php echo constant('URL'); ?>public/js/articulos/listar.js"></script>
+  <script src="<?php echo constant('URL'); ?>public/js/articulos/listarJQ.js"></script>
+  <!-- jQuery library -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript" src="views/articulos/scripts.js"></script>
+  <!-- -->
   <!--<script src="<?php echo constant('URL'); ?>/public/js/main.js"></script> -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
