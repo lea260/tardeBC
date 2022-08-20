@@ -5,8 +5,8 @@ class Errores_Controller extends Controller
     public function __construct()
     {
         parent::__construct();
-        $this->view->mensaje = "Hay un error al cargar el recurso";
+        $this->view->mensaje = "hay un error al cargr el recurso";
         $this->view->render('errores/index');
-        //echo "Error al cargar el recurso";
+        //echo "error al cargar el recurso";
     }
 }

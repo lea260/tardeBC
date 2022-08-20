@@ -1,17 +1,14 @@
 <?php
+
+#require_once 'entidades/alumno.php';
 require_once 'entidades/articulo.php';
 
 class Apiarticulos_Model extends Model
 {
+
     public function __construct()
     {
         parent::__construct();
-
-    }
-
-    public function render()
-    {
-
     }
 
     public function listar()
@@ -45,12 +42,66 @@ class Apiarticulos_Model extends Model
         }
     }
 
+    public function verArticulo($id)
+    {
+        $articulo = null;
+        try {
+            $query = $this->db->connect()->prepare('SELECT id_productos, codigo,descripcion,precio,fecha FROM productos WHERE id_productos=:id');
+            $query->bindValue(':id', $id);
+            //$query->execute(['nombre' => $nombre]);
+            $query->execute();
+            while ($row = $query->fetch()) {
+                $articulo              = new Articulo();
+                $articulo->id          = $row['id_productos'];
+                $articulo->codigo      = $row['codigo'];
+                $articulo->descripcion = $row['descripcion'];
+                $articulo->precio      = $row['precio'];
+                $articulo->fecha       = $row['fecha'];
+            }
+        } catch (PDOException $e) {
+            var_dump($e);
+        }
+        return $articulo;
+    } //end ver
+
+    public function actualizar($articulo)
+    {
+
+        $resultado = false;
+        $pdo       = $this->db->connect();
+        try {
+            $query = $pdo->prepare('UPDATE productos SET codigo=:codigo, descripcion=:descripcion, precio= :precio, fecha= :fecha WHERE id_productos= :id');
+            $query->bindParam(':codigo', $articulo->codigo);
+            $query->bindParam(':descripcion', $articulo->descripcion);
+            $query->bindParam(':precio', $articulo->precio);
+            $query->bindParam(':fecha', $articulo->fecha);
+            $query->bindParam(':id', $articulo->id);
+            //:descripcion, :precio, :fecha
+            //$resultado = $query->execute();
+            $resultado = $query->execute();
+            $filasAf   = $query->rowCount();
+            /*if ($filasAf == 0) {
+            $resultado = false;
+            }*/
+            //$str = "valor";
+            //$resultado = $query->fetch(); // return (PDOStatement) or false on failure
+            //$query->close();
+            return $resultado;
+        } catch (PDOException $e) {
+            return false;
+        } finally {
+            $pdo = null;
+        }
+    } //end actualizar
+
     public function crear($articulo)
     {
 
         $pdo = $this->db->connect();
         try {
-            $query = $pdo->prepare('insert into productos (codigo, descripcion,precio, fecha) values (:codigo, :descripcion, :precio, :fecha)');
+            $query = $pdo->prepare('insert into productos
+            (codigo, descripcion,precio, fecha)
+            values (:codigo, :descripcion, :precio, :fecha)');
             $query->bindParam(':codigo', $articulo->codigo);
             $query->bindParam(':descripcion', $articulo->descripcion);
             $query->bindParam(':precio', $articulo->precio);
@@ -72,5 +123,32 @@ class Apiarticulos_Model extends Model
             $pdo = null;
         }
     } //end crear
+
+    public function eliminar($id)
+    {
+
+        $resultado = false;
+        $pdo       = $this->db->connect();
+
+        try {
+            $query = $pdo->prepare('DELETE FROM productos WHERE id_productos= :id');
+            $query->bindParam(':id', $id);
+            //:descripcion, :precio, :fecha
+            //$resultado = $query->execute();
+            $resultado = $query->execute();
+            $filasAf   = $query->rowCount();
+            /*if ($filasAf == 0) {
+            $resultado = false;
+            }*/
+            //$str = "valor";
+            //$resultado = $query->fetch(); // return (PDOStatement) or false on failure
+            //$query->close();
+            return $resultado;
+        } catch (PDOException $e) {
+            return false;
+        } finally {
+            $pdo = null;
+        }
+    } //end eliminar
 
 }

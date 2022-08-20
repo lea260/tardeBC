@@ -29,17 +29,12 @@ class App
 
             //var_dump($archivoController);
             $controllerName = ucfirst($url[0]) . '_Controller';
-            //var_dump($controllerName);
-            //$controller = new $url[0]();
-            $controller = new $controllerName();
+            $controller     = new $controllerName();
 
             $controller->loadModel($url[0]);
 
-            // Se obtienen el número de param
             $nparam = sizeof($url);
-            // si se llama a un método
             if ($nparam > 1) {
-                // hay parámetros
                 if ($nparam > 2) {
                     $param = [];
                     for ($i = 2; $i < $nparam; $i++) {
@@ -47,13 +42,9 @@ class App
                     }
                     $controller->{$url[1]}($param);
                 } else {
-                    // solo se llama al método
                     $controller->{$url[1]}();
                 }
             } else {
-                // si se llama a un controlador, por defecct
-                //echo "<b>ejecuta el metodo por defecto</b>";
-                //var_dump($controller);
                 $controller->render();
             }
         } else {

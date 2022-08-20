@@ -1,10 +1,5 @@
 <?php
 
-//require_once 'config/config.php';
-
-/*manejo de ccookies */
-//var_dump(constant('URL'));
-
 class Controller
 {
     public $model;
