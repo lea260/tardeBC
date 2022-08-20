@@ -1,7 +1,7 @@
 <?php
 
 //define('URL', 'http://localhost/mvc/');
-define('URL', 'http://' . $_SERVER['HTTP_HOST'] . '/Augusto%20Picardo/tardeBC/');
+define('URL', 'http://' . $_SERVER['HTTP_HOST'] . '/tardeBC-ACancela/');
 
 //conexion a la base de datos
 define('HOST', 'localhost');
