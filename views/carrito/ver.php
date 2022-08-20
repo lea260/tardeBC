@@ -24,7 +24,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12">
-        <h1>Lista Carrito</h1>
+        <h1>Listas Carrito</h1>
       </div><!-- end col-->
     </div><!-- end row-->
 
