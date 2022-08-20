@@ -9,7 +9,7 @@ class Apiarticulos_Controller extends Controller
 
     }
 
-    //localahost/prophp3bj/proyectoPHPComun/Api260260articulos
+    //localahost/proyectoPHPComun/Api260260articulos
 
     public function listar()
     {
