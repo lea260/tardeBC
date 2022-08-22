@@ -28,13 +28,7 @@
       </div><!-- end col-->
     </div><!-- end row-->
 
-    <div class="row">
-      <div id="carritoid"></div>
-
-
-
-
-    </div><!-- end row -->
+  </div><!-- end row -->
   </div><!-- end container-->
   <?php //var_dump($this->articulos);;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;?>
   <?php require 'views/footer.php';?>
