@@ -37,15 +37,21 @@
             <p class="card-text">$ <?=$value->precio;?></p>
             <input id="art-<?=$value->id;?>" class="form-control" value="1" type="number"></p>
 <<<<<<< HEAD
+<<<<<<< HEAD
             <button type="button" class="btn btn-primary btnAgregar" data-articulo-id="<?php echo $value->id; ?>"
               data-articulo-descripcion="<?php echo $value->descripcion; ?>"
               data-articulo-codigo="<?php echo $value->codigo; ?>">Agregar</button>
 =======
+=======
+>>>>>>> 4d1704dc256f954cf8b2cab52f1472660f36d19b
             <a type="" buttonclass="btn btn-primary"
               href="<?php echo constant("URL"); ?>articulos/verArticulo/<?=$value->id;?>">Ver</a>
             <button type="button" class="btn btn-primary btnAgregar"
               data-articulo-id="<?=$value->id;?>">Agregar</button>
+<<<<<<< HEAD
 >>>>>>> 32c17dc (Trabajamos con el carrito y creamos ver.js,ver.php y demas dejamos mejor pulido el carrito pero este no esta terminado aun, se espera seguir trabajando en clase con el docente.)
+=======
+>>>>>>> 4d1704dc256f954cf8b2cab52f1472660f36d19b
           </div>
         </div><!-- end card -->
       </div><!-- end col --><?php }
@@ -56,6 +62,7 @@
 
     </div><!-- end row -->
   </div><!-- end container-->
+<<<<<<< HEAD
 <<<<<<< HEAD
   <?php //var_dump($this->articulos);;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;?>
   <?php require 'views/footer.php';?>
@@ -69,6 +76,8 @@
   <script type="text/javascript" src="views/articulos/scripts.js"></script>
   <!-- -->
 =======
+=======
+>>>>>>> 4d1704dc256f954cf8b2cab52f1472660f36d19b
   <?php //var_dump($this->articulos);;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;?>
   <?php require 'views/footer.php';?>
 
@@ -76,7 +85,10 @@
 
   <!-- importo el javascript-->
   <script src="<?php echo constant('URL'); ?>public/js/articulos/listar.js"></script>
+<<<<<<< HEAD
 >>>>>>> 32c17dc (Trabajamos con el carrito y creamos ver.js,ver.php y demas dejamos mejor pulido el carrito pero este no esta terminado aun, se espera seguir trabajando en clase con el docente.)
+=======
+>>>>>>> 4d1704dc256f954cf8b2cab52f1472660f36d19b
   <!--<script src="<?php echo constant('URL'); ?>/public/js/main.js"></script> -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
