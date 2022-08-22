@@ -14,6 +14,14 @@
 <body>
 
   <?php require 'views/header.php';?>
+  <div class="row" style="display:flex;">
+
+    <a href="<?php echo constant('URL'); ?>carrito/ver">ver Carrito</a>
+    <a href="<?php echo constant('URL'); ?>articulos/listar">listar Articulos</a>
+    <a href="<?php echo constant('URL'); ?>articulos/nuevo">nuevo articulos</a>
+    <a href="<?php echo constant('URL'); ?>login/ingresar">Ingesar</a>
+
+  </div>
 
   <input type="hidden" value="<?php echo constant('URL'); ?>" id="url">
 

@@ -15,6 +15,14 @@
   <!-- <?php require 'views/header.php';?> -->
 
   <div class="container">
+    <div class="row" style="display:flex;">
+
+      <a href="<?php echo constant('URL'); ?>carrito/ver">ver Carrito</a>
+      <a href="<?php echo constant('URL'); ?>articulos/listar">listar Articulos</a>
+      <a href="<?php echo constant('URL'); ?>articulos/nuevo">nuevo articulos</a>
+      <a href="<?php echo constant('URL'); ?>login/ingresar">Ingesar</a>
+
+    </div>
     <div class="row">
       <div class="col-sm">
         <h1>Editar Articulo</h1>
