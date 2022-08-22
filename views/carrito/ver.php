@@ -18,7 +18,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12">
-        <h1>Lista Productos</h1>
+        <h1>Carrito</h1>
       </div><!-- end col-->
     </div><!-- end row-->
 
