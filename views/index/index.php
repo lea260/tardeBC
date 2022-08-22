@@ -13,9 +13,11 @@
 
 <body>
 
+
   <?php require 'views/header.php';?>
 
   <input type="hidden" value="<?php echo constant('URL'); ?>" id="url">
+
 
   <div class="container">
     <div class="row">

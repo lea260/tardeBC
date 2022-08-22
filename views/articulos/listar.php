@@ -12,8 +12,11 @@
   <title>Document</title>
 </head>
 
+
 <body>
-  <input type="text" value="<?php echo constant('URL'); ?>" id="url">
+
+
+
   <?php require 'views/header.php';?>
   <div class="container">
     <div class="row">
