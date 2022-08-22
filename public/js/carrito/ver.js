@@ -21,13 +21,12 @@
           </div>
           </div><!-- end card -->
         </div><!-- end col --><?php }`;
-      $("#carritoId").after(insert02);
+      $("#carritoid").after(insert02);
     });
     /*for (let index = 0; index < array.length; index++) {
-
-        
-        
-      }*/
+      
+      
+    }*/
     $("body").on("click", ".btnEliminar", function () {
       //console.log("entro");
       let articuloId = $(this).data("articuloId");
@@ -51,13 +50,11 @@
               localStorage.setItem("carrito", JSON.stringify(carrito));
               //console.log("probando");
             }
-            //$("#cantidadElemCarrito").text(carrito.length);
+            $("#cantidadElemCarrito").text(carrito.length);
           });
           //$("#cantidadElemCarrito").text(carrito.length);
         }
       }
     }); //end body
-
-    //http://localhost/prophp3bj/proyectoPHPComun/Apicarrito/completarCarrito
   });
 })(jQuery);
