@@ -11,15 +11,15 @@ class Carrito_Controller extends Controller
     //localahost/prophp3bj/proyectoPHPComun/Api260260articulos
     public function render()
     {
+
     }
 
     public function ver()
     {
-        /*$modelo            = new Articulos_Model();
-        $lst               = $modelo->listar();
-        $this->view->lista = $lst;*/
+        /*$modelo             = new Articulos_Model();
+        $lst                = $modelo->listar();
+        $this->view->listar = $lst;*/
         $this->view->render("carrito/ver");
-
     }
 
 }

@@ -1,6 +1,7 @@
 <?php
 
-class Articulos_Controller extends Controller{
+class Articulos_Controller extends Controller
+{
     public function __construct()
     {
         parent::__construct();
@@ -8,56 +9,105 @@ class Articulos_Controller extends Controller{
         $this->view->resultadoLogin = "";
     }
 
-    //base+login
+    //base+articulos
     public function render()
     {
         //$alumnos = $this->model->get();
         $this->view->mensaje = "cargado";
-        $this->view->render('artriculos/index');
+        $this->view->render('articulos/index');
     }
 
+    public function nuevo($param = null)
+    {
+
+        //lista los articulos
+        $this->view->render('articulos/nuevo');
+
+    } //end listar
     public function listar($param = null)
     {
+
         //obtiene todos los articulos
         $articulos = $this->model->listar();
         //lo asigna a la varible articulos
-        $this->view->lista = $articulos;
+        $this->view->listar = $articulos;
         //lista los articulos
         $this->view->render('articulos/listar');
-        $arr = [];
+        //$arr = [];
+    } //end listar
 
-    }
-    public function nuevo(){
-        $this->view->render('articulos/nuevo');
-    }
+    public function crear()
+    {
 
-    
-    public function crear(){
-        
+        $codigo                = $_POST['codigo'];
+        $descripcion           = $_POST['descripcion'];
+        $precio                = $_POST['precio'];
+        $fecha                 = $_POST['fecha'];
+        $articulo              = new Articulo();
+        $articulo->codigo      = $codigo;
+        $articulo->descripcion = $descripcion;
+        $articulo->precio      = $precio;
+        $articulo->fecha       = $fecha;
 
-        $articulo = new Articulo();
-        $articulo->codigo = $_POST['codigo'];
-        $articulo->descripcion = $_POST['descripcion'];
-        $articulo->precio = $_POST['precio'];
-        $articulo->fecha = $_POST['fecha'];
-        $img = $_FILES['img']['tmp_name'];
-        $imgArray = explode(".", $_FILES['img']['name']);
-        $ext = $imgArray[count($imgArray) - 1];
-        $resultado = $this->model->crear($articulo);
-        $path = 'public/img/articulos/' . $resultado . "." . $ext;
-        if(in_array($ext, array('jpg','png','jpeg','gif'))){
-            move_uploaded_file($img, $path);
-    
-        }
-        
-        
-        
-        $this->view->resultado = $resultado;
+        $id                    = $this->model->crear($articulo);
+        $this->view->resultado = $id;
+        $pathImg               = $_FILES['img']['tmp_name'];
+        $tmpName               = $_FILES['img']['name'];
+        $array                 = explode(".", $tmpName);
+        $ext                   = $array[count($array) - 1];
+        $ruta                  = 'public/imagenes/articulos/' . $id . "." . $ext;
+        move_uploaded_file($pathImg, $ruta);
 
         $this->view->render('articulos/crear');
 
     } //end crear
 
-}
+    public function actualizar()
+    {
 
-;
+        $id                    = $_POST['idaux'];
+        $codigo                = $_POST['codigo'];
+        $descripcion           = $_POST['descripcion'];
+        $precio                = $_POST['precio'];
+        $fecha                 = $_POST['fecha'];
+        $articulo              = new Articulo();
+        $articulo->id          = $id;
+        $articulo->codigo      = $codigo;
+        $articulo->descripcion = $descripcion;
+        $articulo->precio      = $precio;
+        $articulo->fecha       = $fecha;
+
+        $resultado             = $this->model->actualizar($articulo);
+        $this->view->resultado = $articulo->id;
+
+        $this->view->render('articulos/actualizar');
+
+    } //end crear
+
+    public function verArticulo($param = null)
+    {
+        $idArticulo = $param[0];
+        $articulo   = $this->model->verArticulo($idArticulo);
+
+        $_SESSION["id_articulo"] = $idArticulo;
+
+        $this->view->articulo = $articulo;
+
+        $this->view->render('articulos/verArticulo');
+    }
+
+    public function eliminar($param = null)
+    {
+        $id = $_POST['idaux'];
+
+        if ($this->model->eliminar($id)) {
+            $mensaje = "Articulo eliminado correctamente";
+            //$this->view->mensaje = "Alumno eliminado correctamente";
+        } else {
+            $mensaje = "No se pudo eliminar al alumno";
+            //$this->view->mensaje = "No se pudo eliminar al alumno";
+        }
+        echo $mensaje;
+    }
+
+}

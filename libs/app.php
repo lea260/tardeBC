@@ -21,33 +21,39 @@ class App
             $archivoController = 'controllers/' . ucfirst($url[0]) . '_Controller.php';
         }
 
+        //var_dump($archivoController);
         if (file_exists($archivoController)) {
+
+            //var_dump($archivoController);
             require $archivoController;
+
+            //var_dump($archivoController);
             $controllerName = ucfirst($url[0]) . '_Controller';
-            $nparam         = sizeof($url);
+            //var_dump($controllerName);
+            //$controller = new $url[0]();
+            $controller = new $controllerName();
+
+            $controller->loadModel($url[0]);
+
+            // Se obtienen el número de param
+            $nparam = sizeof($url);
+            // si se llama a un método
             if ($nparam > 1) {
-                //get all params from controler
-                $métodos_controler = get_class_methods($controllerName);
-                //if not existis url[1] in methods of controller
-                if (!in_array($url[1], $métodos_controler)) {
-                    //if not existis url[1] in methods of controller execute error controller
-                    $controller = new Errores_Controller();
-                } else {
-                    $controller = new $controllerName();
-                    $controller->loadModel($url[0]);
-                    if ($nparam > 2) {
-                        $param = [];
-                        for ($i = 2; $i < $nparam; $i++) {
-                            array_push($param, $url[$i]);
-                        }
-                        $controller->{$url[1]}($param);
-                    } else {
-                        $controller->{$url[1]}();
+                // hay parámetros
+                if ($nparam > 2) {
+                    $param = [];
+                    for ($i = 2; $i < $nparam; $i++) {
+                        array_push($param, $url[$i]);
                     }
+                    $controller->{$url[1]}($param);
+                } else {
+                    // solo se llama al método
+                    $controller->{$url[1]}();
                 }
             } else {
-                $controller = new $controllerName();
-                $controller->loadModel($url[0]);
+                // si se llama a un controlador, por defecct
+                //echo "<b>ejecuta el metodo por defecto</b>";
+                //var_dump($controller);
                 $controller->render();
             }
         } else {

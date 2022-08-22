@@ -11,6 +11,12 @@ class Apiarticulos_Controller extends Controller
     //localahost/prophp3bj/proyectoPHPComun/Api260260articulos
     public function render()
     {
+
+        //var_dump($this);
+        //var_dump($this->view);
+        //$this->view->render('apilea/articulos/index');
+        //var_dump($this);
+        //var_dump($this->view);
     }
 
     public function listar()
@@ -18,38 +24,48 @@ class Apiarticulos_Controller extends Controller
         $mensaje   = "hola desde la api";
         $lista     = $this->model->listar();
         $respuesta = [
-            "datos" => $lista,
+            "lista" => $lista,
             "totalResultados" => count($lista),
             "mensaje" => $mensaje,
         ];
         $this->view->respuesta = json_encode($respuesta);
         $this->view->render("apiarticulos/listar");
     }
+
     public function crear()
     {
-        $datos = json_decode(file_get_contents('php://input'));
+
+        //recepcion de los datos de la api
+        //obtengo los datos de la peticion http, post body
+        $json = file_get_contents('php://input');
+//convierto en un array asociativo de php
+        $obj = json_decode($json);
+
         $articulo              = new Articulo();
-        $articulo->codigo      = $datos->codigo;
-        $articulo->descripcion = $datos->descripcion;
-        $articulo->precio      = $datos->precio;
-        $articulo->fecha       = $datos->fecha;
-        //$articulo->url = "lala"
-        // $img                   = $_FILES['img']['tmp_name'];
-        // $imgArray              = explode(".", $_FILES['img']['name']);
-        // $ext                   = $imgArray[count($imgArray) - 1];
-        // $resultado             = $this->model->crear($articulo);
-        // $path                  = 'public/img/articulos/' . $resultado . "." . $ext;
-        // if (in_array($ext, ['jpg', 'png', 'jpeg', 'gif'])) {
-        //     move_uploaded_file($img, $path);
-        // }
+        $articulo->codigo      = $obj->codigo;
+        $articulo->descripcion = $obj->descripcion;
+        $articulo->precio      = $obj->precio;
+        $articulo->fecha       = $obj->fecha;
+//array_push($listaArticulos, $articulo);
+        //$items[] = $item;
+
         $resultado = $this->model->crear($articulo);
+//$articulo->id = $obj->id;
+        //$articulo->nombre = $obj->nombre;
+        //$articulos = $this->model->get();
+        //$this->view->articulos = json_encode($articulos);
+        //$listaObjetos = json_encode($listaArticulos);
 
         $respuesta = [
-            "ArticuloID" => $resultado];
-
+            "ArituloId" => $resultado,
+        ];
         $this->view->respuesta = json_encode($respuesta);
+
         $this->view->render("apiarticulos/crear");
 
-    }
+//var_dump($this);
+        //var_dump($this->view);
+
+    } //end crear
 
 }
