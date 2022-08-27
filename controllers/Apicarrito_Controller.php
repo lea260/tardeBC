@@ -23,6 +23,9 @@ class Apicarrito_Controller extends Controller
             $datos          = json_decode($json);
             $listaArticulos = $datos->lista;
             $usuario        = $datos->usuario;
+            $idusuario      = $datos->idusuario;
+            $pedidos        = $datos->pedidos;
+            
             //$lista = array();
             $lista = [];
             foreach ($listaArticulos as $key => $obj) {
