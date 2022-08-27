@@ -1,6 +1,6 @@
 (function ($) {
   $(document).ready(function () {
-    alert("aaaa");
+    //alert("aaaa");
     var $listaArticulos = [];
     let url = $("#url").val();
     let urlReq = url + "apiarticulos/listar";
@@ -12,7 +12,7 @@
     $.ajax({
       url: urlReq,
       headers: headers,
-      type: "POST",
+      type: "GET",
       data: data,
       dataType: "json",
     })
@@ -42,19 +42,16 @@
           id: $id,
           precio: articulo.precio,
           descripcion: articulo.descripcion,
-          url:articulo.url,
-          cantidad: cantidad
+          url: articulo.url,
+          cantidad: cantidad,
         };
         let carritoStr = localStorage.getItem("carrito");
-        let carritoArr=[];
+        let carritoArr = [];
         if (carritoStr) {
-        JSON.parse(carritoStr);  
-        // agrego el elemento al carrito
-        carritoArr.push(item);
-       }else{
-        carritoArr.push(item);
-       localStorage.setItem("carrito",JSON.stringify(carritoArr));   
+          carritoArr = JSON.parse(carritoStr);
         }
+        carritoArr.push(item);
+        localStorage.setItem("carrito", JSON.stringify(carritoArr));
         console.log(item);
       });
     });

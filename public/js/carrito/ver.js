@@ -21,7 +21,7 @@
           </div>
           </div><!-- end card -->
         </div><!-- end col --><?php }`;
-      $("#carritoid").after(insert02);
+      $("#mmmmmm").after(insert02);
     });
     /*for (let index = 0; index < array.length; index++) {
 
@@ -59,4 +59,3 @@
     }); //end body
   });
 })(jQuery);
-

@@ -29,8 +29,10 @@
     </div><!-- end row-->
 
   </div><!-- end row -->
+  <div id="mmmmmm"></div>
+
   </div><!-- end container-->
-  <?php //var_dump($this->articulos);;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;?>
+  <?php //var_dump($this->articulos);;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;?>
   <?php require 'views/footer.php';?>
 
 
