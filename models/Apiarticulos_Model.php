@@ -10,7 +10,10 @@ class Apiarticulos_Model extends Model
     {
         parent::__construct();
     }
-
+public function completarCarrito () {
+    
+}
+    
     public function listar()
     {
         //define un arreglo en php

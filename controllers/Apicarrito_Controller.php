@@ -1,7 +1,6 @@
 <?php
 require_once 'entidades/carrito.php';
-require_once 'vendor/autoload.php';
-require_once 'auth/Auth.php';
+
 
 class Apicarrito_Controller extends Controller
 {
@@ -21,10 +20,9 @@ class Apicarrito_Controller extends Controller
             $json = file_get_contents('php://input');
             //convierto en un array asociativo de php
             $datos          = json_decode($json);
-            $listaArticulos = $datos->lista;
-            $usuario        = $datos->usuario;
-            $idusuario      = $datos->idusuario;
-            $pedidos        = $datos->pedidos;
+            $listaArticulos = $datos->Lista;
+            $usuario= $datos->usuario_id;
+           
             
             //$lista = array();
             $lista = [];
@@ -33,6 +31,7 @@ class Apicarrito_Controller extends Controller
                 $articulo->id       = $obj->id;
                 $articulo->cantidad = $obj->cantidad;
                 $articulo->precio   = $obj->precio;
+                $articulo->descripcion = $obj->descripcion;
                 $lista[]            = $articulo;
                 //array_push($lista, $articulo);
             }
