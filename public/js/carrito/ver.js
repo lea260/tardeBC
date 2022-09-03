@@ -57,5 +57,39 @@
         }
       }
     }); //end body
+
+    $("#btnCompletarCarrito").on("click", function () {
+      //alert("token");
+      let url = $("#url").val();
+      let urlReq = url + "apicarrito/completarCarrito";
+
+      //$token = localStorage.getItem('token');
+      let headers = { "Content-Type": "application/json;charset=utf-8" };
+      //'Authorization': `Bearer ${token}`};
+
+      var data = { lista: carrito, usuario_id: 1 };
+      //console.log(data);
+      $.ajax({
+        url: urlReq,
+        headers: headers,
+        type: "POST",
+        data: JSON.stringify(data),
+        dataType: "json",
+        //dataType : 'text'
+      })
+        .done(function (data) {
+          localStorage.setItem("carrito", JSON.stringify([]));
+          //$("#cantidadElemCarrito").text(0);
+          $("#mmmmmm").html(`<div id="mmmmmm"></div>`);
+          $("#numPedido").text(data.resultado);
+
+          $("#resPedido").css("display", "block");
+        })
+        .fail(function (jqXHR, textStatus, errorThrown) {
+          console.log(textStatus);
+        });
+    }); //end btnCompletarCarrito
+
+    /*  enviar4 pedido*/
   });
 })(jQuery);
