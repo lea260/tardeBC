@@ -15,7 +15,7 @@ class Mail_Controller extends Controller
         //$alumnos = $this->model->get();
         //$this->view->alumnos = "cargado";
         $correo  = constant('USER_DEST');
-        $mensaje = "mensaje desde app";
+        $mensaje = "mensaje é ñ desde app";
 
         $oMail = new PHPMailer();
         $oMail->isSMTP();
@@ -29,9 +29,13 @@ class Mail_Controller extends Controller
         $oMail->addAddress($correo, "Pedro");
         $oMail->Subject = "Hola pepe el que pica";
         $oMail->msgHTML($mensaje);
+        $oMail->CharSet = 'UTF-8';
 
         if (!$oMail->send()) {
             echo $oMail->ErrorInfo;
+        } else {
+            echo 'enviado';
+            # code...
         }
         //$this->view->render('mail/enviar');
 
