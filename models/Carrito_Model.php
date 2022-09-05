@@ -30,8 +30,6 @@ class Carrito_Model extends Model{
                 $query->bindParam(':pedido_id', $PedidoID);
                 $query->execute();
             }
-            //:descripcion, :precio, :fecha
-            //$query->close();
             $pdo->commit();
             return $PedidoID;
         } catch (PDOException $e) {
