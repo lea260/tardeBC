@@ -3,7 +3,7 @@
 #require('pdf/fpdf.php');  // MAKE SURE YOU HAVE THIS LINE
 require_once 'pdflib/MyPDF.php';
 header("Content-type:application/pdf");
-$imagen    = "public/imagenes/logo.jpg";
+$imagen    = "public/img/logo.jpg";
 $nombre    = 'Desarrollos S.A';
 $ruc       = '000 111 222 333';
 $direccion = 'falsa 123 - Las Piedras';
@@ -133,7 +133,7 @@ $pdf->SetFillColor(255, 255, 255);
 
 $items   = [];
 $totales = 0;
-for ($i = 0; $i < 50; $i++) {
+for ($i = 0; $i < 0; $i++) {
     $item              = new stdClass;
     $item->codigo      = "cod25";
     $item->descripcion = "desc";
