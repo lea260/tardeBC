@@ -7,7 +7,7 @@ class Carrito_Controller extends Controller
         parent::__construct();
 
     }
-    
+
     public function render()
     {
 

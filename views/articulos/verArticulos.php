@@ -22,12 +22,10 @@
     </div>
     <form id="form01" class="row" action="<?php echo constant('URL'); ?>articulos/actualizar" method="post"
       enctype="multipart/form-data">
-      <input type="hidden" class="form-control" id="articuloId" aria-describedby="emailHelp" name="idaux"
-        value="<?=$this->articulo->id;?>">
       <div class="col-lg-12 col-md-12 col-sm-12">
         <label for="articuloId" class="form-label">Id</label>
         <input type="text" class="form-control" id="articuloId" aria-describedby="emailHelp" name="id" disabled
-          value="<?=$this->articulo->id;?>">
+          value="<?php echo $this->articulo->id; ?>">
       </div>
       <div class="col-lg-12 col-md-12 col-sm-12">
         <label for="articuloCodigo" class="form-label">Codigo</label>
@@ -58,17 +56,14 @@
       </div>
 
       <div class="col-lg-6 col-md-6 col-sm-6 py-2">
-        <button id="btnEnviarForm" type="submit" class="btn btn-success">Editar</button>
+        <button id="btnEnviarForm" type="submit" class="btn btn-success">Submit</button>
       </div>
       <div class="col-lg-6 col-md-6 col-sm-6 py-2">
-        <button id="btnEliminar" type="submit" class="btn btn-danger">Eliminar</button>
+        <span type="submit" class="btn btn-danger" id="enviarForm">Ajax</span>
       </div>
-    </form>
 
-    <form method="post" id="form02" action="<?php echo constant('URL'); ?>articulos/eliminar" method="post"
-      style="display:none">
-      <input type="hidden" class="form-control" id="articuloId" aria-describedby="emailHelp" name="idaux"
-        value="<?=$this->articulo->id;?>">
+
+      <input type="hidden" value="<?php echo $this->articulo->id; ?>" id="articuloId" name="articuloId">
 
     </form>
   </div>
@@ -78,9 +73,9 @@
 
   <?php require 'views/footer.php';?>
 
-  <script src="<?php echo constant('URL'); ?>public/js/jquery-3.6.0.min.js"></script>
+  <script src="<?php echo constant('URL'); ?>/public/js/jquery-3.6.0.min.js"></script>
   <!-- importo el javascript-->
-  <script src="<?php echo constant('URL'); ?>public/js/articulos/verArticulo.js"></script>
+  <script src="<?php echo constant('URL'); ?>/public/js/articulos/verArticulo.js"></script>
   <!--<script src="<?php echo constant('URL'); ?>/public/js/main.js"></script> -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">

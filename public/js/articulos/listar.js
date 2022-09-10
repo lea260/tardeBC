@@ -3,6 +3,7 @@
     var $lista = [];
     let url = $("#url").val();
     let urlReq = url + "apiarticulos/listar";
+    console.log(urlReq);
     //console.log("url: "+urlReq);
     //console.log(param);
     let headers = { "Content-Type": "application/json;charset=utf-8" };
