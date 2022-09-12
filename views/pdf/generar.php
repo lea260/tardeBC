@@ -25,6 +25,7 @@ $imagenBase64       = "data:image/jpg;base64," . base64_encode(file_get_contents
     <div class="row">
       <div class="col-sm">
         <h1>Chinas</h1>
+        <p>Asi es me gustan peli rojas</p>
         <img src="<?=$imagenBase64;?>">
       </div>
     </div>
