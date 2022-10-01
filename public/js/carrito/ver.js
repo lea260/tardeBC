@@ -24,6 +24,7 @@
       $("#carritoId").after(insert02);
     });
     /*for (let index = 0; index < array.length; index++) {
+
         
         
       }*/
@@ -59,4 +60,39 @@
 
     //http://localhost/prophp3bj/proyectoPHPComun/Apicarrito/completarCarrito
   });
+
+  $("body").on("click", "#save", function (event) {
+    event.preventDefault();
+
+    let url = $("#url").val();
+    let urlReq = url + "apicarrito/save";
+    //event.Preven
+    let carrito = JSON.parse(localStorage.getItem("carrito"));
+    let data = { lista: carrito, usuario_id: 1 };
+    let dataStr = JSON.stringify(data);
+    let headers = { "Content-Type": "application/json;charset=utf-8" };
+    $.ajax({
+      url: urlReq,
+      headers: headers,
+      type: "POST",
+      data: dataStr,
+      dataType: "json",
+    })
+      .done(function (data) {
+        //$listaArticulos = data.datos;
+        let id = data.PedidoID;
+        console.log(data);
+        console.log("exito");
+        //
+        carritoId;
+        $("#carritoId").html(`<div id="carritoId"><p>
+        ${data.Mensage} id: ${id}  </p></div>`);
+        localStorage.setItem("carrito", JSON.stringify([]));
+
+        //console.log($lista);
+      })
+      .fail(function (jqXHR, textStatus, errorThrown) {
+        //console.log(textStatus);
+      });
+  }); //end body
 })(jQuery);
