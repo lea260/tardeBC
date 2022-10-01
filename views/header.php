@@ -1,3 +1,6 @@
+<?php require_once 'traduccion/Translate.php';
+use \SimpleTranslation\Translate;?>
+
 <nav>
   <a href="/tardeBC/"> Inicio </a>
   <!-- <a href="/tardeBC/login/ingresar"> Login </a> -->
