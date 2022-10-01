@@ -13,8 +13,8 @@
 
 <body>
 
-  <?php require 'views/header4log.php';?>
-  <?php include_once 'entidades/alumno.php';?>
+  <?php require 'views/header.php';?>
+  <?php include_once 'entidades/articulo.php';?>
   <input type="hidden" value="<?php echo constant('URL'); ?>" id="url">
   <!--hidden -->
   <div class="container">
@@ -41,7 +41,7 @@
 
 
 
-      <?php require 'views/footer2.php';?>
+      <?php require 'views/footer.php';?>
 
 
 
