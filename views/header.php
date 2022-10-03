@@ -5,3 +5,5 @@
   <a href="<?=constant('URL');?>Articulos/nuevo">Articulos nuevos</a>
 
 </nav>
+
+<?php require_once 'traduccion/Translate.php';
