@@ -1,5 +1,6 @@
 <?php
 require_once 'jwt/jwts.php';
+
 class Token_Controller extends Controller
 {
     public function __construct()
@@ -12,24 +13,24 @@ class Token_Controller extends Controller
     public function render()
     {
 
-        //var_dump($this);
-        //var_dump($this->view);
-        //$this->view->render('apilea/articulos/index');
-        //var_dump($this);
-        //var_dump($this->view);
     }
 
     public function generar()
     {
         try {
             //code..
-            $data = [usuario => 5,
-                rol => "admin"];
-            $token = Jwts::GenerarTk();
+            $data = ["usuario_id" => 5,
+                "rol" => "admin"];
+            $token = Jwts::GenerarTk($data);
             echo $token;
         } catch (Exception $th) {
             //throw $th;
         }
+    }
+
+    public function test()
+    {
+        echo "hola";
 
     }
 

@@ -17,7 +17,7 @@ class Auth
             'data' => $data,
         ];
 
-        return JWT::encode($token, self::$secret_key);
+        return JWT::encode($token, self::$secret_key, 'HS256');
     }
 
     public static function Check($token)

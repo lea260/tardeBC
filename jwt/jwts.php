@@ -1,21 +1,10 @@
 <?php
+require_once 'vendor/autoload.php';
 use Firebase\JWT\JWT;
 
 class Jwts
 {
     private static $secret_key = 'Sdw1s9x8@';
-    public static function SignIn($data)
-    {
-        $time = time();
-
-        $token = [
-            'exp' => $time + (30 * 60),
-            'data' => $data,
-            'iis' => $_SERVER['HTTP_HOST'],
-        ];
-
-        return JWT::encode($token, self::$secret_key);
-    }
 
     public static function GenerarTk($data)
     {
@@ -26,10 +15,10 @@ class Jwts
             'iat' => $time,
             'exp' => $time + (30 * 60),
             'data' => $data,
-            'iis' => $data,
+            'iis' => $_SERVER['HTTP_HOST'],
         ];
 
-        return JWT::encode($token, self::$secret_key);
+        return JWT::encode($token, self::$secret_key, 'HS256');
     }
 
     public static function value($token)
