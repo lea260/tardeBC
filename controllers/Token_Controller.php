@@ -1,7 +1,10 @@
 <?php
-require_once "jwt/jwts.php";
+require_once 'jwt/jwts.php';
 
-class Token_Controller  extends Controller
+use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
+
+class Token_Controller extends Controller
 {
     public function __construct()
     {
@@ -10,32 +13,39 @@ class Token_Controller  extends Controller
     }
 
     //localahost/prophp3bj/proyectoPHPComun/Api260260articulos
-
-    public function listar()
+    public function render()
     {
-
-        $mensaje   = "hola desde la api";
-        $lista     = $this->model->listar();
-        $respuesta = [
-            "lista" => $lista,
-            "totalResultados" => count($lista),
-            "mensaje" => $mensaje,
-        ];
-        $this->view->respuesta = json_encode($respuesta);
-        $this->view->render("apiarticulos/listar");
 
     }
 
     public function generar()
     {
-try {
-    $data= ["usuario_id"=>5,
-    "rol"=>"admin"];
-    $token = jwts::generarTK($data);
-    echo  $token;
+        try {
+            //code..
+            $data = ["usuario_id" => 5,
+                "rol" => "admin"];
+            $jwt = Jwts::GenerarTk($data);
+            echo $jwt;
+            $decoded = JWT::decode($jwt, new Key(Jwts::$secret_key, 'HS256'));
+            //print_r($decoded);
 
-}catch (exception $th) {
-    //throw $th;
-}
-    } 
+        } catch (Exception $th) {
+            //throw $th;
+            $men;
+            var_dump($th);
+        }
+    }
+
+    public function test()
+    {
+        try {
+            $tk   = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NjUyNTQ3OTcsImRhdGEiOnsidXN1YXJpb19pZCI6NSwicm9sIjoiYWRtaW4ifSwiaWlzIjoibG9jYWxob3N0In0.FpVxaiyaR7PaL3185wM8F1UuRMMeuflGi6LCmi-rpJI';
+            $data = Jwts::value($tk);
+            print_r($data->data);
+        } catch (Exception $th) {
+            //throw $th;
+        }
+
+    }
+
 }

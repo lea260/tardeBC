@@ -1,51 +1,39 @@
 <?php
-
 require_once 'vendor/autoload.php';
-
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 
-class jwts
+class Jwts
 {
-    private static $secret_key = 'Sdw1s9x8@';
-    public static function SignIn($data)
+    public static $secret_key = 'Sdw1s9x8@';
+
+    public static function GenerarTk($data)
     {
         $time = time();
 
-          $token = [
+        $token = [
+            //'nbf' => $time + (30 * 60),
+            //'iat' => $time,
             'exp' => $time + (30 * 60),
             'data' => $data,
-            'iss' => $_SERVER['HTTP_HOST'],
-
+            'iis' => $_SERVER['HTTP_HOST'],
         ];
 
-        return JWT::encode($token, self::$secret_key);
-   
-}
-public static function GenerarTk($data)
-{
-    $time = time();
+        return JWT::encode($token, self::$secret_key, 'HS256');
+    }
 
-    $token = array(
-        'nbf'  => $time + (30 * 60),
-        'iat'  => $time,
-        'exp'  => $time + (30 * 60),
-        'data' => $data,
-        'iss'  =>  $data,
-    );
-
-    return JWT::encode($token, self::$secret_key,'HS256');
-}
-public static function value($token)
+    public static function value($jwt)
     {
-        if (empty($token)) {
+        if (empty($jwt)) {
             throw new Exception("Invalid token supplied.");
         }
 
-        $decode = JWT::decode(
-            $token,
-            self::$secret_key,
-        );
+        //$decoded = JWT::decode($jwt, self::$secret_key, ['HS256']);
+        // $decoded = JWT::decode($jwt, new Key(Jwts::$secret_key, 'HS256'));
+        $decode = JWT::decode($jwt, new Key(Jwts::$secret_key, 'HS256'));
+
+        return $decode;
+
     }
 
 }
