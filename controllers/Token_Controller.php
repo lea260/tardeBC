@@ -21,7 +21,8 @@ class Token_Controller extends Controller
             //code..
             $data = ["usuario_id" => 5,
                 "rol" => "admin"];
-            $token = Jwts::GenerarTk($data);
+            $token          = Jwts::GenerarTk($data);
+            $_SESSION['tk'] = $token;
             echo $token;
         } catch (Exception $th) {
             //throw $th;
@@ -30,7 +31,14 @@ class Token_Controller extends Controller
 
     public function test()
     {
-        echo "hola";
+        try {
+            //code...
+            $tk = Jwts::value($_SESSION['tk']);
+            print_r($tk);
+        } catch (Exception $th) {
+            //throw $th;
+        }
+        //$tk = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYmYiOjE2NjU4NTUwMzAsImlhdCI6MTY2NTg1MzIzMCwiZXhwIjoxNjY1ODU1MDMwLCJkYXRhIjp7InVzdWFyaW9faWQiOjUsInJvbCI6ImFkbWluIn0sImlpcyI6ImxvY2FsaG9zdCJ9.E9n6NlytAfRsJiZI8RUSVNZZNSb8Q0uksxmhI7aJuWM
 
     }
 

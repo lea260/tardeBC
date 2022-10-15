@@ -1,6 +1,7 @@
 <?php
 require_once 'vendor/autoload.php';
 use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
 
 class Jwts
 {
@@ -11,8 +12,6 @@ class Jwts
         $time = time();
 
         $token = [
-            'nbf' => $time + (30 * 60),
-            'iat' => $time,
             'exp' => $time + (30 * 60),
             'data' => $data,
             'iis' => $_SERVER['HTTP_HOST'],
@@ -26,11 +25,9 @@ class Jwts
         if (empty($token)) {
             throw new Exception("Invalid token supplied.");
         }
-        $decode = JWT::decode(
-            $token,
-            self::$secret_key,
-        );
-
+        // $decode = JWT::decode($token,self::$secret_key,);
+        $decode = JWT::decode($token, new Key(Jwts::$secret_key, 'HS256'));
+        return $decode;
     }
 
 }
