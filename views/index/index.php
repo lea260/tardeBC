@@ -2,28 +2,28 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
-    <title>Inicio</title>
+  <title>Inicio</title>
 </head>
 
 <body>
 
-    <?php require 'views/header.php';?>
-    <h1>Página Principal</h1>
+  <?php require 'views/header.php';?>
+  <h1>Página Inicial</h1>
 
-    <input type="hidden" value="<?php echo constant('URL'); ?>" id="url">
+  <input type="hidden" value="<?php echo constant('URL'); ?>" id="url">
+  <a href="./views/articulos/index.php">Hola</a>
+
+  <?php require 'views/footer.php';?>
 
 
-    <?php require 'views/footer.php';?>
-
-
-    <!-- importo el javascript-->
-    <script src="<?php echo constant('URL'); ?>public/js/main.js"></script>
+  <!-- importo el javascript-->
+  <script src="<?php echo constant('URL'); ?>public/js/main.js"></script>
 
 </body>
 
