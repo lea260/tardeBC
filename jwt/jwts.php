@@ -12,10 +12,12 @@ class jwts
     {
         $time = time();
 
-        $token = array(
+          $token = [
             'exp' => $time + (30 * 60),
             'data' => $data,
-        );
+            'iss' => $_SERVER['HTTP_HOST'],
+
+        ];
 
         return JWT::encode($token, self::$secret_key);
    
