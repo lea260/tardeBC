@@ -13,7 +13,7 @@ class Articulos_Controller extends Controller
     public function render()
     {
         //$alumnos = $this->model->get();
-        $this->view->mensaje = "cargado";
+        $this->view->mensaje = "Como canta aurora la constitución";
         $this->view->render('articulos/index');
     }
 

@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'home' => 'Inicio Inicial del Inicio Inicialista',
+    'home' => 'Esta es la cabecera',
     'articles' => 'articulos',
     'articles_list' => 'contacto',
     'cart' => 'carrito',

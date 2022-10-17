@@ -5,24 +5,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-  <title>Document</title>
+  <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/articulos.css">
+  <title>Articulos</title>
 </head>
 
 <body>
 
-<?php require 'views/header.php';?> 
+<?php require 'views/header.php';?>
 
   <input type="hidden" value="<?php echo constant('URL'); ?>" id="url">
-
-
-  <h1>pagina default</h1>
-  <h2><?=$this->mensaje;?></h2>
-
+  <h1>Articulos Principal</h1>
+  <button><a href="<?php echo constant('URL'); ?>articulos/listar">Listar Articulos</a></button>
+  <button><a href="<?php echo constant('URL'); ?>articulos/crear">Crear Articulos</a></button>
+  <button><a href="<?php echo constant('URL'); ?>articulos/actualizar">Actualizar Articulos</a></button>
+  <button><a href="<?php echo constant('URL'); ?>articulos/nuevo">Nuevo Articulo</a></button>
+  <button><a href="<?php echo constant('URL'); ?>articulos/verArticulo">Ver Articulos</a></button>
   <?php require 'views/footer.php';?>
 
 
-  <!-- importo el javascript-->
+  <!-- Importo el javascript-->
   <script src="<?php echo constant('URL'); ?>public/js/main.js"></script>
 
 </body>
