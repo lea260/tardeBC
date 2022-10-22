@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" href="<?php echo constant('ICN');?>">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <title>Inicio</title>
@@ -15,13 +14,8 @@
 
     <?php require 'views/header.php';?>
     <h1>Página Inicial</h1>
-
-    <input type="hidden" value="<?php echo constant('URL'); ?>" id="url">
     <!-- Para llamar a una página, antes tengo que llamar a su controlador para que renderize la página, 
   porque sino no funciona.-->
-    <button><a href="<?php echo constant('URL'); ?>articulos">Vista Articulos</a></button>
-    <button><a href="<?php echo constant('URL'); ?>login">Login</a></button>
-    <button><a href="<?php echo constant('URL'); ?>pedidos">Pedidos</a></button>
 
     <?php require 'views/footer.php';?>
 

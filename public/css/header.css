@@ -1,0 +1,53 @@
+.heado {
+    align-items: center;
+}
+
+.heado {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.menu1 ul {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 50vw;
+}
+
+.menu1 a {
+    text-decoration: none;
+    font-family: Pacifico;
+    color: white;
+    padding: 10px;
+    display: block;
+    margin-right: 10px;
+    width: 150px;
+    text-align: center;
+    background: #505050;
+}
+
+.menu1 ul li ul {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+}
+
+.menu1 a:hover {
+    background: #272727;
+    box-shadow: 0 0 20px 0 #272727;
+}
+
+.menu1 ul li ul li {
+    width: 100%;
+    position: relative;
+    display: none;
+}
+
+.menu1 ul li:hover>ul li {
+    display: block;
+    box-shadow: 0 20px 20px 0 #272727;
+}
