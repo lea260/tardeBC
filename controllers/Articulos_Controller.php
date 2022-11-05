@@ -30,11 +30,7 @@ class Articulos_Controller extends Controller
         //obtiene todos los articulos
         $articulos = $this->model->listar();
         //lo asigna a la varible articulos
-<<<<<<< HEAD
         $this->view->listar = $articulos;
-=======
-        $this->view->lista = $articulos;
->>>>>>> f397e9b (Agregue contenido listar.php y index.php en articulos y modifique articulos_controller.php)
         //lista los articulos
         $this->view->render('articulos/listar');
         //$arr = [];
