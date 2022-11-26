@@ -1,75 +1,43 @@
-(function($, param) {
-$(document).ready(function() {
-//alert('hola');
-//console.log("funciona ver articulo");
-$("#enviarForm").click(function() {
-//alert('hola');
-//console.log("enviarFormulario");
-var id = $("#articuloId").val();
-var codigo = $("#articuloCodigo").val();
-var descripcion = $("#articuloDescripcion").val();
-var precio = $("#articuloPrecio").val();
-var fecha = $("#articuloFecha").val();
-var objeto = {
-"id": id,
-"codigo": codigo,
-"descripcion" : descripcion,
-"precio": precio,
-"fecha" : fecha}
-//console.log(objeto);
-const confirm = window.confirm("Deseas actualizar el elemento?");
-if (confirm){
-//console.log("entro if");
-//solitud ajax,
-//$("#filaart-"+alumnoId).remove();
-let url= $("#url").val();
-let urlReq =url+"api260260articulos/actualizar";
-//console.log("url: "+urlReq);
-let headers = {"Content-Type":"application/json;charset=utf-8"};
-let data = JSON.stringify(objeto);
-$.ajax({
-url: urlReq,
-headers: headers,
-type: 'POST',
-data: data,
-dataType : 'json'
-})
-.done(function (data) {
-console.log(data);})
-.fail(function (jqXHR, textStatus, errorThrown) { console.log(textStatus); });
+<!DOCTYPE html>
+<html lang="en">
 
-} else {
-console.log("entro else");
-}
-});//end enviar Form ajax
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
-$("#btnEnviarForm").click(function(e) {
-e.preventDefault();
-console.log("funciona");
-if (true){
-$("#form01").submit();
-}
-});//end enviar Form post
 
-//previsualizacion de la imagen
-$("input[type=file]").change(function(e){
-let input = e.target;
-let reader = new FileReader();
-reader.onload = function(){
-var dataURL = reader.result;
-console.log(dataURL);
-//var output = document.getElementById('output');
-//output.src = dataURL;
-//$("#imgP").html("<img src='" +dataURL+ "' />");
-$("#imgP").html(`<img src="${dataURL}" width="50%" />`);
-};
-reader.readAsDataURL(input.files[0]);
-});
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="hidden" value="<?php echo constant('URL'); ?>" id="url">
+  <?php require 'views/header.php';?>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <h1>Nuevo articulo creado</h1>
+        <?=$this->resultado;?>
+
+      </div><!-- end col-->
+    </div><!-- end row-->
+  </div><!-- end container-->
 
 
 
 
+  <?php require 'views/footer.php';?>
 
 
-});//end ready
-})(jQuery, "hola mundo");
+  <!-- importo el javascript-->
+  <script src="<?php echo constant('URL'); ?>public/js/articulos/crear.js"></script>
+  <!--<script src="<?php echo constant('URL'); ?>/public/js/main.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
+  </script>
+
+</body>
+
+</html>

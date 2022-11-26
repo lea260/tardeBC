@@ -1,6 +1,6 @@
 <?php
-require_once 'vendor/autoload.php';
-require_once 'auth/Auth.php';
+#require_once 'vendor/autoload.php';
+#require_once 'auth/Auth.php';
 
 class Login_Controller extends Controller
 {
@@ -10,10 +10,7 @@ class Login_Controller extends Controller
         $this->view->mensaje        = "";
         $this->view->resultadoLogin = "";
     }
-    public function login()
-    {
-        echo "ingresar";
-    }
+
     //base+login
     public function render()
     {
@@ -43,18 +40,24 @@ class Login_Controller extends Controller
             $this->view->render('login/index');
         }
 
-
-    }
-    public function test(){
-         unset($_SESSION["estalogueado"]);
-         unset($_SESSION["nombre"]);
-         session_destroy();
-         $this->view->render('login/test');
     }
     public function salir()
     {
-        
-     
-
-      }  
+        //$_SESSION["estalogueado"] = false;
+        unset($_SESSION["estalogueado"]);
+        unset($_SESSION["nombre"]);
+        session_destroy();
+        $this->view->render('index/index');
     }
+
+    public function test()
+    {
+        //$_SESSION["estalogueado"] = false;
+        $pwd                = '1234';
+        $hash               = password_hash($pwd, PASSWORD_BCRYPT, ['cost' => 10]);
+        $this->view->hash   = $hash;
+        $result             = password_verify($pwd, $hash);
+        $this->view->result = $result;
+        $this->view->render('login/test');
+    }
+}
