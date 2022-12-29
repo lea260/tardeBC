@@ -22,30 +22,38 @@ class Login_Controller extends Controller
     public function ingresar()
     {
         $nombre     = $_POST['nombre'];
-        $password   = $_POST['password'];
-        $exitoLogin = $this->model->ingresar($nombre, $password);
+        $pass       = $_POST['pass'];
+        $exitoLogin = $this->model->ingresar($nombre, $pass);
+        if ($exitoLogin) {
+
+            $_SESSION["estalogueado"] = true;
+            $_SESSION["nombre"]       = $nombre;
+            $_SESSION["rol"]          = "cliente";
+            $this->view->render('login/ingresar');
+        } else {
+            $this->view->resultadoLogin = "usuario o contraseña incorrectos";
+            $this->view->render('login/index');
+        }
+
     }
-    public function test()
+    public function salir()
     {
         //$_SESSION["estalogueado"] = false;
         unset($_SESSION["estalogueado"]);
-        unset($_SESSION["nombre"]);
+        unset($_SESSION["estalogueado"]);
+        unset($_SESSION["rol"]);
         session_destroy();
-        $this->view->render('login/test');
-
+        $this->view->render('index/index');
     }
-    public function login()
+
+    public function test()
     {
-         $pwd='1234';
-         $hash = password_hash($pwd,PASSWORD_BCRYPT,['cost'=>10,]);
-         $this->view->hash=$hash;
-         $result= password_verify($pwd,$hash);
-         $this->view->result=$result;
-         
-         $this->view->render('login/test');
-        
-
+        //$_SESSION["estalogueado"] = false;
+        $pwd                = '1234';
+        $hash               = password_hash($pwd, PASSWORD_BCRYPT, ['cost' => 10]);
+        $this->view->hash   = $hash;
+        $result             = password_verify($pwd, $hash);
+        $this->view->result = $result;
+        $this->view->render('login/test');
     }
- 
-        
-    } 
+}

@@ -1,5 +1,4 @@
 <?php
-require_once "entidades/articulos.php";
 
 class Apiarticulos_Controller extends Controller
 {
@@ -10,10 +9,18 @@ class Apiarticulos_Controller extends Controller
     }
 
     //localahost/prophp3bj/proyectoPHPComun/Api260260articulos
+    public function render()
+    {
+
+        //var_dump($this);
+        //var_dump($this->view);
+        //$this->view->render('apilea/articulos/index');
+        //var_dump($this);
+        //var_dump($this->view);
+    }
 
     public function listar()
     {
-
         $mensaje   = "hola desde la api";
         $lista     = $this->model->listar();
         $respuesta = [
@@ -23,14 +30,15 @@ class Apiarticulos_Controller extends Controller
         ];
         $this->view->respuesta = json_encode($respuesta);
         $this->view->render("apiarticulos/listar");
-
     }
 
-    public function nuevo()
+    public function crear()
     {
-//obtengo los datos de la peticion http, post body
+
+        //recepcion de los datos de la api
+        //obtengo los datos de la peticion http, post body
         $json = file_get_contents('php://input');
-        //convierto en un array asociativo de php
+//convierto en un array asociativo de php
         $obj = json_decode($json);
 
         $articulo              = new Articulo();
@@ -38,11 +46,11 @@ class Apiarticulos_Controller extends Controller
         $articulo->descripcion = $obj->descripcion;
         $articulo->precio      = $obj->precio;
         $articulo->fecha       = $obj->fecha;
-        //array_push($listaArticulos, $articulo);
+//array_push($listaArticulos, $articulo);
         //$items[] = $item;
 
         $resultado = $this->model->crear($articulo);
-        //$articulo->id = $obj->id;
+//$articulo->id = $obj->id;
         //$articulo->nombre = $obj->nombre;
         //$articulos = $this->model->get();
         //$this->view->articulos = json_encode($articulos);
@@ -55,7 +63,9 @@ class Apiarticulos_Controller extends Controller
 
         $this->view->render("apiarticulos/crear");
 
-        //var_dump($this);
+//var_dump($this);
         //var_dump($this->view);
+
     } //end crear
+
 }

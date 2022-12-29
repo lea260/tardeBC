@@ -1,4 +1,4 @@
 .vscode/*
 public/imagenes/*
-vendor/*
 config/secrets.php
+controllers/Dot_Controller.php

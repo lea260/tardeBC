@@ -1,11 +1,3 @@
-@lcalvetti
-lcalvetti formateado archivos
-Latest commit 5f5ebfd on 5 Nov 2021
-History
-2 contributors
-@lea260@lcalvetti
-51 lines (39 sloc) 1.54 KB
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,24 +19,24 @@ History
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12">
         <h1>Nuevo articulo creado</h1>
+        <?=$this->resultado;?>
 
-        <?=$this->id;?>
-        <!-- end col-->
-      </div><!-- end row-->
-    </div><!-- end container-->
-
-
+      </div><!-- end col-->
+    </div><!-- end row-->
+  </div><!-- end container-->
 
 
-    <?php require 'views/footer.php';?>
 
 
-    <!-- importo el javascript-->
-    <script src="<?php echo constant('URL'); ?>public/js/articulos/crear.js"></script>
-    <!--<script src="<?php echo constant('URL'); ?>/public/js/main.js"></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
-    </script>
+  <?php require 'views/footer.php';?>
+
+
+  <!-- importo el javascript-->
+  <script src="<?php echo constant('URL'); ?>public/js/articulos/crear.js"></script>
+  <!--<script src="<?php echo constant('URL'); ?>/public/js/main.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
+  </script>
 
 </body>
 

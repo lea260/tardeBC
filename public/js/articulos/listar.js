@@ -1,10 +1,9 @@
 (function ($) {
+  var $lista = [];
   $(document).ready(function () {
-    alert("aaaa");
-    var $listaArticulos = [];
     let url = $("#url").val();
     let urlReq = url + "apiarticulos/listar";
-
+    //console.log(urlReq);
     //console.log("url: "+urlReq);
     //console.log(param);
     let headers = { "Content-Type": "application/json;charset=utf-8" };
@@ -12,24 +11,26 @@
     $.ajax({
       url: urlReq,
       headers: headers,
-      type: "POST",
-      data: data,
+      type: "GET",
+      data: JSON.stringify(data),
       dataType: "json",
     })
       .done(function (data) {
-        // $listaArticulos = data.datos;
-        //console.log(data);
-        //console.log("----------");
+        //$listaArticulos = data.datos;
         $lista = data.lista;
         console.log($lista);
+        //console.log($lista);
       })
       .fail(function (jqXHR, textStatus, errorThrown) {
         console.log(textStatus);
+        console.log(errorThrown);
       });
+
     $(".btnAgregar").each(function (index) {
       $(this).on("click", function () {
-        //console.log("hola");
+        console.log($lista);
         //let articuloId = this.dataset.articuloId;
+        //obtengo el id del articulo, mediante
         let $id = $(this).data("articuloId");
         let articuloDescripcion = $(this).data("articuloDescripcion");
         let articuloCodigo = $(this).data("articuloCodigo");
@@ -37,26 +38,34 @@
         let articulo = $lista.find((art) => art.id == $id);
         //console.log(articulo);
         let cantidad = $("#art-" + $id).val();
-        console.log("cantidad" + cantidad);
+        //console.log("cantidad:" + cantidad);
         let item = {
           id: $id,
           precio: articulo.precio,
           descripcion: articulo.descripcion,
-          url:articulo.url,
-          cantidad: cantidad
+          url: articulo.url,
+          cantidad: cantidad,
+          codigo: articulo.codigo,
         };
+
         let carritoStr = localStorage.getItem("carrito");
-        let carritoArr=[];
+        let carritoArr = [];
         if (carritoStr) {
-        JSON.parse(carritoStr);  
-        // agrego el elemento al carrito
-        carritoArr.push(item);
-       }else{
-        carritoArr.push(item);
-       localStorage.setItem("carrito",JSON.stringify(carritoArr));   
+          //console.log(carritoStr);
+          console.log("entro if");
+          carritoArr = JSON.parse(carritoStr);
+          //agrego el elemento al carrito
+          carritoArr.push(item);
+          localStorage.setItem("carrito", JSON.stringify(carritoArr));
+        } else {
+          console.log("entro else");
+          carritoArr.push(item);
+          localStorage.setItem("carrito", JSON.stringify(carritoArr));
         }
-        console.log(item);
+        if (carritoStr) {
+          $("#cantidadElemCarrito").text(carritoArr.length);
+        }
       });
     });
-  });
+  }); //end ready
 })(jQuery);

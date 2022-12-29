@@ -1,32 +1,28 @@
 <?php
 
-#require_once 'entidades/alumno.php';
-//require_once 'entidades/articulos.php';
-
 class Login_Model extends Model
 {
-
     public function __construct()
     {
         parent::__construct();
     }
-
-    
-    public function obtenerUsuarioId($id)
+    public function ingresar($user)
     {
-        $lista      = unserialize($_SESSION['lista']);
-        
-        $i          = 1;
-        $Usuario    = null;
-        $encontrado = false;
-        while ($i < count($lista) && !$encontrado) {
-            # code...
-            if ($lista[$i]->getId() == $id) {
-                $Usuario    = $lista[$i];
-                $encontrado = true;
+        $cdb = $this->db->connect();
+        try {
+            $consulta = $cdb->prepare('select id from usuario where email=:email && password=:pass');
+            $consulta->bindParam(':email', $user->email);
+            $consulta->bindParam(':pass', $user->password);
+            $consulta->execute();
+            $id = -1;
+            while ($row = $consulta->fetch()) {
+                $id = $row['id'];
             }
-            $i++;
+            return $id;
+        } catch (PDOException $e) {
+            return -1;
+        } finally {
+            $cdb = null;
         }
-        return $Usuario;
-}
-}
+    }
+};
